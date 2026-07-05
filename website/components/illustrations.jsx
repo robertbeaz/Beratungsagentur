@@ -272,6 +272,240 @@ export function PhoneChatMockup() {
   );
 }
 
+/* ---------- Schwebende Hero-Widgets (Startseiten-Hero) ----------
+   Chat, Telefon, Dokumente, Terminbuchung, CRM und Prozess als
+   Widgets über die gesamte Hero-Fläche verteilt (ab xl) – bewusst
+   asymmetrisch. Gestrichelte Verbindungslinien mit Knotenpunkten
+   erzählen die Geschichte: Wir integrieren Systeme und Prozesse. */
+function FloatCard({ className = '', rot = 0, children }) {
+  return (
+    <div
+      style={{ transform: `rotate(${rot}deg)` }}
+      className={`absolute rounded-md bg-sand-0 p-3 text-left shadow-lg ${className}`}
+    >
+      {children}
+    </div>
+  );
+}
+
+/* Einzelne Icon-Kachel (z. B. nur ein Dokument) */
+function FloatTile({ className = '', rot = 0, children }) {
+  return (
+    <span
+      style={{ transform: `rotate(${rot}deg)` }}
+      className={`absolute grid h-14 w-14 place-items-center rounded-md bg-sand-0 shadow-lg ${className}`}
+    >
+      {children}
+    </span>
+  );
+}
+
+/* Durchgezogener Verbindungspfeil (gerade, geschwungen oder mit
+   Schleife) – führt von einem Widget zum CRM-Tablet in der Mitte. */
+function FlowArrow({ className = '', viewBox, d, tip }) {
+  return (
+    <svg
+      viewBox={viewBox} aria-hidden="true"
+      className={`absolute text-sand-500/80 ${className}`}
+      fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
+    >
+      <path d={d} vectorEffect="non-scaling-stroke" />
+      <path d={tip} vectorEffect="non-scaling-stroke" />
+    </svg>
+  );
+}
+
+export function HeroWidgets() {
+  return (
+    <div aria-hidden="true" className="pointer-events-none absolute inset-0 hidden xl:block">
+      {/* CRM-Tablet unten mittig, am Hero-Rand angeschnitten */}
+      <div className="absolute bottom-0 left-1/2 w-[600px] -translate-x-1/2 translate-y-[58%]">
+        <TabletDashboard />
+      </div>
+
+      {/* Pfeile: von jedem Widget zum CRM */}
+      {/* Chat → CRM (mit Schleife) */}
+      <FlowArrow
+        className="left-[19%] top-[31%] w-[10%]" viewBox="0 0 160 220"
+        d="M10 8 C 60 40, 100 30, 96 70 C 92 104, 40 92, 52 120 C 62 142, 110 160, 146 204"
+        tip="M132 202 L146 204 L142 190"
+      />
+      {/* Dokument-Kachel → CRM */}
+      <FlowArrow
+        className="left-[18%] top-[55%] w-[9%]" viewBox="0 0 130 110"
+        d="M8 8 C 50 18, 60 60, 122 100"
+        tip="M108 98 L122 100 L116 86"
+      />
+      {/* Anruf → CRM */}
+      <FlowArrow
+        className="left-[16.5%] top-[68%] w-[12%]" viewBox="0 0 170 70"
+        d="M8 10 C 60 14, 120 34, 162 60"
+        tip="M148 58 L162 60 L156 46"
+      />
+      {/* Signiertes Dokument → CRM (gerade, wie die Vorlage) */}
+      <FlowArrow
+        className="bottom-[9%] left-[23%] w-[5%]" viewBox="0 0 120 40"
+        d="M6 20 H 112"
+        tip="M100 10 L112 20 L100 30"
+      />
+      {/* Stern → CRM (lange Schleife) */}
+      <FlowArrow
+        className="right-[19%] top-[15%] w-[8%]" viewBox="0 0 130 300"
+        d="M118 10 C 92 44, 122 78, 82 96 C 44 112, 100 140, 76 190 C 60 222, 40 254, 22 284"
+        tip="M34 276 L22 284 L28 268"
+      />
+      {/* CRM-Pipeline → CRM */}
+      <FlowArrow
+        className="right-[13%] top-[33%] w-[5%]" viewBox="0 0 80 90"
+        d="M72 8 C 50 28, 30 50, 12 80"
+        tip="M26 74 L12 80 L18 64"
+      />
+      {/* Terminbuchung → CRM */}
+      <FlowArrow
+        className="right-[19%] top-[60%] w-[7%]" viewBox="0 0 100 90"
+        d="M92 8 C 60 24, 30 50, 10 82"
+        tip="M24 78 L10 82 L16 68"
+      />
+      {/* Prozess → CRM (gerade) */}
+      <FlowArrow
+        className="bottom-[10%] right-[24%] w-[4.5%]" viewBox="0 0 80 30"
+        d="M74 15 H 8"
+        tip="M20 5 L8 15 L20 25"
+      />
+
+      {/* Dokument-Kachel – zwischen Chat und Anruf */}
+      <FloatTile rot={8} className="left-[14%] top-[45%] text-forest-800">
+        <Icon name="document" size={24} />
+      </FloatTile>
+
+      {/* Bewertungs-Stern – oben rechts, eingerückt */}
+      <FloatTile rot={-8} className="right-[13%] top-9 text-sun-400">
+        <Icon name="star" size={24} fill="currentColor" />
+      </FloatTile>
+
+      {/* Chat – oben links */}
+      <FloatCard rot={-5} className="left-[3.5%] top-14 w-56 2xl:left-[5%]">
+        <div className="space-y-1.5">
+          <div className="max-w-[88%] rounded-sm rounded-bl-xs bg-sand-50 px-2.5 py-1.5 text-[0.75rem] leading-snug text-sand-800">
+            Ist die Wohnung noch frei?
+          </div>
+          <div className="ml-auto max-w-[88%] rounded-sm rounded-br-xs bg-forest-100 px-2.5 py-1.5 text-[0.75rem] leading-snug text-forest-950">
+            Ja! Buchen Sie hier direkt eine Besichtigung. 📅
+          </div>
+          <div className="flex justify-end">
+            <span className="inline-flex items-center gap-1 rounded-pill bg-signal-100 px-2 py-0.5 text-[0.625rem] font-medium text-forest-800">
+              <span className="rounded-xs bg-signal-300 px-1 font-data font-medium text-sand-950">KI</span>
+              beantwortet in 2 Min.
+            </span>
+          </div>
+        </div>
+      </FloatCard>
+
+      {/* Eingehender Anruf – unteres Drittel links */}
+      <FloatCard rot={2} className="left-[1.5%] top-[58%] w-52 2xl:left-[3%]">
+        <div className="flex items-center gap-2.5">
+          <span className="grid h-9 w-9 shrink-0 place-items-center rounded-pill bg-forest-100 text-forest-700">
+            <Icon name="phone" size={17} />
+          </span>
+          <div className="min-w-0 leading-tight">
+            <p className="m-0 truncate text-[0.75rem] font-semibold text-sand-900">Familie Berger ruft an</p>
+            <p className="m-0 truncate text-[0.6875rem] text-sand-500">Kundenakte öffnet sich …</p>
+          </div>
+          <span className="ml-auto h-2.5 w-2.5 shrink-0 rounded-pill bg-forest-500" />
+        </div>
+      </FloatCard>
+
+      {/* Signiertes Dokument – unten links */}
+      <FloatCard rot={-3} className="bottom-12 left-[8%] w-52">
+        <div className="flex items-center gap-2.5">
+          <span className="grid h-9 w-9 shrink-0 place-items-center rounded-sm bg-sand-100 text-sand-700">
+            <Icon name="document" size={17} />
+          </span>
+          <div className="min-w-0 leading-tight">
+            <p className="m-0 text-[0.75rem] font-semibold text-sand-900">Maklervollmacht.pdf</p>
+            <p className="m-0 text-[0.6875rem] text-sand-500">digital signiert</p>
+          </div>
+          <span className="ml-auto grid h-5 w-5 shrink-0 place-items-center rounded-pill bg-forest-100 text-forest-700">
+            <Icon name="check" size={11} />
+          </span>
+        </div>
+      </FloatCard>
+
+      {/* Terminbuchung – Mitte rechts, unterhalb der Pipeline */}
+      <FloatCard rot={-4} className="right-[4%] top-[52%] w-52">
+        <p className="m-0 mb-2 text-[0.625rem] font-semibold uppercase tracking-widest text-sand-400">
+          Terminbuchung
+        </p>
+        <div className="space-y-1.5">
+          <div className="flex items-center justify-between rounded-sm bg-forest-100 px-2.5 py-1.5 text-[0.75rem] font-semibold text-forest-950">
+            Do · 14:30 Uhr
+            <Icon name="check" size={13} className="text-forest-700" />
+          </div>
+          <div className="flex items-center justify-between rounded-sm bg-sand-50 px-2.5 py-1.5 text-[0.75rem] text-sand-600">
+            Fr · 10:00 Uhr
+          </div>
+        </div>
+      </FloatCard>
+
+      {/* CRM-Pipeline – oben rechts */}
+      <FloatCard rot={3} className="right-[2%] top-[18%] w-56 2xl:right-[4%]">
+        <div className="mb-2 flex items-center justify-between">
+          <p className="m-0 text-[0.625rem] font-semibold uppercase tracking-widest text-sand-400">CRM-Pipeline</p>
+          <span className="rounded-xs bg-signal-300 px-1.5 py-0.5 font-data text-[0.625rem] font-medium text-sand-950">
+            A · heiß
+          </span>
+        </div>
+        <div className="space-y-1.5">
+          {['w-11/12', 'w-3/4', 'w-1/2'].map((w, i) => (
+            <div key={w} className="flex items-center gap-2">
+              <span className={`h-2 w-2 shrink-0 rounded-pill ${i === 0 ? 'bg-forest-500' : 'bg-forest-300'}`} />
+              <span className={`block h-2 rounded-pill bg-sand-100 ${w}`} />
+            </div>
+          ))}
+        </div>
+      </FloatCard>
+
+      {/* Automatisierter Prozess – unten rechts, eingerückt */}
+      <FloatCard rot={-2} className="bottom-9 right-[13%]">
+        <div className="flex items-center gap-1.5">
+          <span className="grid h-8 w-8 place-items-center rounded-sm bg-sand-100 text-sand-700">
+            <Icon name="bell" size={15} />
+          </span>
+          <Icon name="arrow-right" size={13} className="text-sand-400" />
+          <span className="grid h-8 w-8 place-items-center rounded-sm bg-forest-900 text-forest-100">
+            <Icon name="settings" size={15} />
+          </span>
+          <Icon name="arrow-right" size={13} className="text-sand-400" />
+          <span className="grid h-8 w-8 place-items-center rounded-sm bg-forest-100 text-forest-700">
+            <Icon name="check" size={15} />
+          </span>
+        </div>
+        <p className="m-0 mt-2 text-[0.6875rem] text-sand-500">Prozess läuft automatisch</p>
+      </FloatCard>
+    </div>
+  );
+}
+
+/* Kompakte Icon-Kacheln als Hero-Deko unterhalb von xl */
+const heroTileIcons = ['document', 'mic', 'calendar', 'phone', 'chart', 'settings'];
+
+export function HeroIconTiles() {
+  return (
+    <div aria-hidden="true" className="flex flex-wrap items-center justify-center gap-3">
+      {heroTileIcons.map((name, i) => (
+        <span
+          key={name}
+          className={`grid h-12 w-12 place-items-center rounded-sm bg-sand-0 text-forest-800 shadow-md ${
+            i % 2 === 0 ? 'rotate-3' : '-rotate-3'
+          }`}
+        >
+          <Icon name={name} size={22} />
+        </span>
+      ))}
+    </div>
+  );
+}
+
 /* ---------- Tablet mit CRM-Dashboard (Hero) ---------- */
 export function TabletDashboard() {
   return (

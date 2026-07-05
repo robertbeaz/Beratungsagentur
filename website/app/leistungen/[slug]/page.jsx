@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import { PageHeader, CtaBand, FaqSection, Reveal } from '../../../components/sections';
 import { Icon, KiBadge, Eyebrow } from '../../../components/primitives';
 import { DashboardMockup, FlowIllustration, PhoneChatMockup } from '../../../components/illustrations';
+import { FeatureBento } from '../../../components/feature-bento';
 import { services } from '../../../components/site';
 
 const serviceMedia = {
@@ -62,6 +63,9 @@ export default async function ServicePage({ params }) {
           </div>
         </div>
       </section>
+
+      {/* Feature-Showcase (Bento-Grid), nur wenn für die Leistung gepflegt */}
+      <FeatureBento features={service.features} />
 
       {/* Leistungsumfang */}
       <section className="bg-forest-100 px-5 py-section-m md:py-section">

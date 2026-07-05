@@ -3,11 +3,43 @@ import {
 } from '../components/sections';
 import { Icon, Eyebrow, TextLink } from '../components/primitives';
 import { IntegrationIllustration } from '../components/illustrations';
-import { processSteps, stats, testimonials, homeFaq, tools } from '../components/site';
+import { processSteps, stats, testimonials, homeFaq, tools, audiences } from '../components/site';
 
 export const metadata = {
-  title: 'VERDA – Digitale Prozesse für Versicherungsmakler, Baufinanzierer & Immobilienprofis',
+  title: 'VERDA – Digitalberatung & Implementierung für Versicherungsmakler, Baufinanzierer & Immobilienprofis',
 };
+
+/* ---------- Zielgruppen-Sektion ---------- */
+function AudienceSection() {
+  return (
+    <section className="px-5 py-section-m md:py-section">
+      <div className="mx-auto max-w-container">
+        <Reveal>
+          <Eyebrow icon="user">Für wen wir arbeiten</Eyebrow>
+          <h2 className="mt-3 max-w-2xl font-display text-display-lg text-sand-900">
+            Egal aus welcher Branche – wir kennen Ihre Prozesse.
+          </h2>
+        </Reveal>
+        <div className="mt-12 grid gap-5 md:grid-cols-3">
+          {audiences.map((a, i) => (
+            <Reveal key={a.label} delay={i * 90}>
+              <div className="flex h-full flex-col rounded-sm bg-sand-0 p-6 shadow-hairline md:p-8">
+                <span className="inline-grid h-12 w-12 place-items-center rounded-sm bg-forest-100 text-forest-700">
+                  <Icon name={a.icon} size={24} />
+                </span>
+                <h3 className="mt-5 font-display text-h3 text-sand-900">{a.label}</h3>
+                <p className="mt-2 flex-1 text-sand-600">{a.text}</p>
+                <div className="mt-5">
+                  <TextLink href={a.href}>{a.linkLabel}</TextLink>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
 
 /* ---------- Problem-Sektion ---------- */
 const pains = [
@@ -54,7 +86,9 @@ function PainSection() {
         <Reveal delay={120}>
           <p className="mt-10 max-w-2xl text-body-lg text-sand-700">
             Das ist kein Personalproblem – es ist ein Prozessproblem.
-            Und genau dafür sind wir da.
+            Genau dazu beraten wir. Und anders als eine Softwarefirma hören wir
+            nicht bei der Empfehlung auf: Wir implementieren die Lösung, bis sie
+            in Ihrem Alltag läuft.
           </p>
         </Reveal>
       </div>
@@ -63,6 +97,14 @@ function PainSection() {
 }
 
 /* ---------- Integrations-Sektion (Bestandssysteme & Schnittstellen) ---------- */
+const integrationPoints = [
+  'E-Mail-Postfach & Kalender',
+  'Maklerverwaltungsprogramm',
+  'Telefonanlage',
+  'WhatsApp Business',
+  'Bestehende Website & Formulare',
+];
+
 function IntegrationSection() {
   return (
     <section className="px-5 py-section-m md:py-section">
@@ -92,17 +134,23 @@ function IntegrationSection() {
             <div className="flex h-full flex-col rounded-md bg-sand-0 p-8 shadow-hairline md:p-12">
               <h3 className="font-display text-h3 text-sand-900">Direkte Schnittstellen erleichtern die Handhabung</h3>
               <p className="mt-3 text-sand-600">
-                Wir unterstützen die gängigsten CRM-, Marketing- und Automatisierungs-Tools –
-                und verbinden stetig mehr.
+                Wir kennen die gängigsten CRM-, Marketing- und Automatisierungs-Tools aus
+                der täglichen Projektarbeit – und implementieren die, die zu Ihren
+                Abläufen passen.
               </p>
-              <div className="mt-8 grid flex-1 grid-cols-2 content-center gap-x-6 gap-y-8">
-                {tools.map((t) => (
-                  <span key={t} className="text-center font-display text-h3 font-medium text-sand-400">
-                    {t}
-                  </span>
+              <ul className="mt-8 flex-1 list-none space-y-3 p-0">
+                {integrationPoints.map((point) => (
+                  <li key={point} className="flex items-center gap-3">
+                    <span className="grid h-7 w-7 shrink-0 place-items-center rounded-pill bg-forest-100 text-forest-700">
+                      <Icon name="check" size={14} />
+                    </span>
+                    <span className="text-sand-800">{point}</span>
+                  </li>
                 ))}
-              </div>
-              <p className="mb-0 mt-8 text-center text-body-sm text-sand-500">… und viele mehr</p>
+              </ul>
+              <p className="mb-0 mt-8 text-body-sm text-sand-500">
+                Umgesetzt je nach Bedarf mit {tools.join(', ')} – und weiteren Tools.
+              </p>
             </div>
           </Reveal>
         </div>
@@ -147,12 +195,19 @@ export default function HomePage() {
   return (
     <>
       <HeroShowcase
+        eyebrow="Beratung & Implementierung – keine Software von der Stange"
         title={<>Weniger Verwaltung.<br />Mehr Abschlüsse.</>}
-        lead="Wir digitalisieren die Prozesse von Versicherungsmaklern, Baufinanzierern und Immobilienprofis – CRM, Automatisierung und Kundenkommunikation aus einer Hand."
+        lead="Wir beraten Versicherungsmakler, Baufinanzierer und Immobilienprofis zu CRM, Automatisierung und Kundenkommunikation – und implementieren die passenden Systeme, bis Ihr Team damit arbeitet."
+        secondaryLabel="Leistungen ansehen"
+        secondaryHref="/leistungen"
       />
-      <LogoMarquee logos={tools} />
+      <LogoMarquee
+        label="Herstellerunabhängig: Wir verkaufen keine Software, wir implementieren die passende – zum Beispiel"
+        logos={tools}
+      />
+      <AudienceSection />
       <PainSection />
-      <FeatureStepper />
+      <FeatureStepper title="Wir beraten, implementieren und schulen – in drei Leistungsbereichen." />
       <ProcessSection />
       <IntegrationSection />
       <StatsSection

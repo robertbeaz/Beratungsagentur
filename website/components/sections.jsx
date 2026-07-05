@@ -7,7 +7,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { ButtonLink, Icon, Eyebrow, StatCard, KiBadge, Accordion } from './primitives';
-import { TabletDashboard, MiniChatPhone, MiniNotifyPhone, DashboardMockup, FlowIllustration, PhoneChatMockup } from './illustrations';
+import { HeroWidgets, HeroIconTiles, DashboardMockup, FlowIllustration, PhoneChatMockup } from './illustrations';
 import { site, navLinks, services } from './site';
 
 /* ---------- Scroll-Reveal (700ms, ease-out, IntersectionObserver) ---------- */
@@ -209,34 +209,41 @@ export function Hero({ title, lead, secondaryLabel, secondaryHref, media }) {
   );
 }
 
-/* ---------- Hero-Showcase (Startseite, Geräte-Mockups an den Rändern) ---------- */
-export function HeroShowcase({ title, lead }) {
+/* ---------- Hero-Showcase (Startseite, verteilte Prozess-Widgets) ---------- */
+export function HeroShowcase({ eyebrow, title, lead, secondaryLabel, secondaryHref }) {
   return (
-    <section className="relative overflow-hidden bg-forest-100 px-5 pt-section-m md:pt-section">
-      {/* Deko-Geräte – nur auf großen Screens, angeschnitten und leicht gedreht */}
-      <div className="pointer-events-none absolute -left-8 top-6 hidden w-[195px] rotate-[9deg] xl:block 2xl:w-[215px]">
-        <MiniChatPhone />
-      </div>
-      <div className="pointer-events-none absolute -right-9 top-2 hidden w-[205px] -rotate-[11deg] xl:block 2xl:w-[225px]">
-        <MiniNotifyPhone />
+    <section className="relative overflow-hidden bg-forest-100 px-5 pb-14 pt-8 md:pb-24 md:pt-10 xl:min-h-[max(620px,calc(100dvh-232px))] xl:pb-24">
+      {/* Schwebende Widgets über die gesamte Hero-Fläche (ab xl) */}
+      <div className="animate-fade-in [animation-delay:400ms]">
+        <HeroWidgets />
       </div>
 
       <div className="relative mx-auto max-w-container text-center">
+        {eyebrow && (
+          <p className="m-0 mb-3 animate-fade-up">
+            <span className="inline-flex items-center gap-2 rounded-pill bg-sand-0/70 px-4 py-1.5 text-body-sm font-semibold text-forest-800 shadow-hairline">
+              {eyebrow}
+            </span>
+          </p>
+        )}
         <h1 className="mx-auto max-w-3xl animate-fade-up font-display text-display-xl text-forest-950">
           {title}
         </h1>
-        <p className="mx-auto mt-6 max-w-2xl animate-fade-up text-body-lg text-sand-600 [animation-delay:120ms]">
+        <p className="mx-auto mt-3 max-w-2xl animate-fade-up text-body-lg text-sand-600 [animation-delay:120ms]">
           {lead}
         </p>
-        <div className="mt-10 animate-fade-up [animation-delay:240ms]">
+        <div className="mt-5 flex animate-fade-up flex-wrap items-center justify-center gap-4 [animation-delay:240ms]">
           <ButtonLink href="/erstgespraech" size="lg">{site.cta}</ButtonLink>
+          {secondaryLabel && (
+            <ButtonLink href={secondaryHref} size="lg" variant="secondary">{secondaryLabel}</ButtonLink>
+          )}
         </div>
-        <p className="mt-5 animate-fade-up text-body-sm text-sand-500 [animation-delay:360ms]">
+        <p className="mt-2 animate-fade-up text-body-sm text-sand-500 [animation-delay:360ms]">
           Kostenlos & unverbindlich · 30 Minuten · per Video oder Telefon
         </p>
-        {/* Tablet, unten angeschnitten */}
-        <div className="mx-auto mt-14 max-w-2xl translate-y-8 -rotate-[4deg] animate-fade-up [animation-delay:480ms] sm:translate-y-12">
-          <TabletDashboard />
+        {/* Unterhalb von xl: kompakte Icon-Kacheln statt der Widgets */}
+        <div className="mt-9 animate-fade-up [animation-delay:480ms] xl:hidden">
+          <HeroIconTiles />
         </div>
       </div>
     </section>
@@ -337,8 +344,8 @@ export function PageHeader({ eyebrow, eyebrowIcon, title, lead, dark = false, me
 export function LogoMarquee({ label = 'Wir arbeiten mit den Tools, die Sie brauchen', logos = [] }) {
   const row = [...logos, ...logos];
   return (
-    <section className="overflow-hidden py-16">
-      <p className="mb-8 text-center text-body-lg text-sand-500">{label}</p>
+    <section className="overflow-hidden pb-10 pt-8">
+      <p className="mb-6 text-center text-body-lg text-sand-500">{label}</p>
       <div className="flex w-max animate-marquee gap-20 hover:[animation-play-state:paused]" aria-hidden="true">
         {row.map((logo, i) => (
           <span key={i} className="whitespace-nowrap font-display text-h3 font-medium text-sand-400">
@@ -389,7 +396,7 @@ export function CtaBand({
             <ButtonLink href="/erstgespraech" size="lg" variant="accent" icon="arrow-right">{ctaLabel}</ButtonLink>
           </div>
           <p className="mt-6 text-body-sm text-forest-200/80">
-            Kostenlos & unverbindlich – Sie gehen ohne Verpflichtung aus dem Gespräch.
+            Kein Vertrag, kein Verkaufsdruck – Sie entscheiden danach in Ruhe, ob und wie wir weiterarbeiten.
           </p>
         </Reveal>
       </div>
@@ -445,13 +452,13 @@ const footerColumns = [
     links: [
       { label: 'CRM & Datenstruktur', href: '/leistungen/crm-und-daten' },
       { label: 'Automatisierung & KI', href: '/leistungen/automatisierung-und-ki' },
-      { label: 'Kundenkommunikation', href: '/leistungen/kundenkommunikation' },
+      { label: 'Marketing & Kundenkommunikation', href: '/leistungen/kundenkommunikation' },
     ],
   },
   {
     title: 'Unternehmen',
     links: [
-      { label: 'Referenzen', href: '/referenzen' },
+      { label: 'Use Cases', href: '/use-cases' },
       { label: 'Über uns', href: '/ueber-uns' },
       { label: 'Erstgespräch', href: '/erstgespraech' },
     ],
@@ -473,8 +480,9 @@ export function Footer() {
           <div>
             <Wordmark className="!text-sand-25" />
             <p className="mt-4 max-w-xs text-body-sm text-sand-400">
-              Digitale Prozesse für Versicherungsmakler, Baufinanzierer und Immobilienprofis –
-              vom ersten Kontakt bis zum Abschluss.
+              Beratung und Implementierung digitaler Prozesse für Versicherungsmakler,
+              Baufinanzierer und Immobilienprofis – herstellerunabhängig, von der
+              Analyse bis zur Schulung.
             </p>
           </div>
           {footerColumns.map((col) => (
