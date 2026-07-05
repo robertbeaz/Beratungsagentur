@@ -1,0 +1,160 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   VERDA Design System · Tokens (aus tokens/tokens.css)
+   Fonts werden über next/font geladen und setzen
+   --font-display / --font-body / --font-data auf <html>.
+   ============================================================ */
+
+:root {
+  /* ---------- Farb-Primitives ---------- */
+  --forest-50:  #F3F7EE;
+  --forest-100: #E5EED4;
+  --forest-200: #CFE0B4;
+  --forest-300: #AFC98D;
+  --forest-400: #86AA67;
+  --forest-500: #64925C;
+  --forest-600: #4B7345;
+  --forest-700: #3A5936;
+  --forest-800: #29452A;
+  --forest-900: #1D3A22;
+  --forest-950: #132A17;
+
+  --sun-50:  #FFFFF0;
+  --sun-100: #FFFFE0;
+  --sun-200: #FEFDBE;
+  --sun-300: #FDFB9C;
+  --sun-400: #FAF476;
+  --sun-500: #F5EA4A;
+  --sun-600: #EFDE0F;
+  --sun-700: #C7B70A;
+
+  --signal-100: #F2FEDC;
+  --signal-200: #E5FCB9;
+  --signal-300: #D7F98B;
+  --signal-400: #C3EF5F;
+  --signal-500: #A8DB38;
+
+  --sand-0:   #FFFFFF;
+  --sand-25:  #FDFDFC;
+  --sand-50:  #F8F8F4;
+  --sand-100: #EEEEE5;
+  --sand-200: #DCDCD2;
+  --sand-300: #C6C7BC;
+  --sand-400: #AEB0A6;
+  --sand-500: #8B8E83;
+  --sand-600: #5F625A;
+  --sand-700: #474A43;
+  --sand-800: #33352F;
+  --sand-900: #262821;
+  --sand-950: #171913;
+
+  --sky-50:  #EAF2F8;
+  --sky-100: #D4E4EF;
+  --sky-300: #8FB9D3;
+  --sky-500: #4181A6;
+  --sky-700: #2B5771;
+  --sky-900: #18303E;
+
+  --carnelian-50:  #FBEAE7;
+  --carnelian-100: #FAD9D1;
+  --carnelian-500: #A82D1F;
+  --carnelian-700: #7E2117;
+
+  --amber-50:  #FDF3E3;
+  --amber-100: #FAE4C2;
+  --amber-500: #C77E1D;
+  --amber-700: #8F5A12;
+
+  /* ---------- Semantische Tokens ---------- */
+  --bg-base:        var(--sand-25);
+  --bg-surface:     var(--sand-0);
+  --bg-subtle:      var(--sand-50);
+  --bg-muted:       var(--sand-100);
+  --bg-brand:       var(--forest-900);
+  --bg-brand-soft:  var(--forest-100);
+  --bg-brand-tint:  var(--forest-50);
+  --bg-accent:      var(--sun-300);
+  --bg-signal:      var(--signal-300);
+  --bg-inverse:     var(--sand-950);
+
+  --text-primary:        var(--sand-900);
+  --text-secondary:      var(--sand-600);
+  --text-soft:           var(--sand-400);
+  --text-brand:          var(--forest-700);
+  --text-on-brand:       var(--forest-50);
+  --text-on-brand-muted: var(--forest-200);
+  --text-on-accent:      var(--sand-900);
+  --text-link:           var(--forest-700);
+  --text-danger:         var(--carnelian-500);
+
+  --border-hairline: rgba(23, 25, 19, 0.08);
+  --border-subtle:   var(--sand-200);
+  --border-strong:   var(--sand-300);
+  --border-brand:    var(--forest-900);
+  --border-focus:    var(--forest-600);
+}
+
+/* ---------- Basis-Defaults ---------- */
+body {
+  margin: 0;
+  background: var(--bg-base);
+  color: var(--text-secondary);
+  font-family: var(--font-body), 'Helvetica Neue', Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-display), 'Helvetica Neue', Arial, sans-serif;
+  color: var(--text-primary);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.5em;
+}
+
+a { color: var(--text-link); }
+
+:focus-visible {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Dunkle Sektionen: semantische Tokens umschalten */
+[data-theme="brand"] {
+  --bg-base: var(--forest-900);
+  --bg-surface: var(--forest-800);
+  --bg-subtle: var(--forest-950);
+  --text-primary: var(--forest-50);
+  --text-secondary: var(--forest-200);
+  --text-link: var(--sun-300);
+  --border-hairline: rgba(255, 255, 255, 0.12);
+  --border-subtle: rgba(255, 255, 255, 0.18);
+}
+
+/* ---------- Scroll-Reveal (JS setzt .is-revealed) ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 700ms cubic-bezier(0.16, 1, 0.3, 1),
+              transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Reduzierte Bewegung respektieren */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+}

@@ -1,0 +1,206 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "meta": {
+    "name": "VERDA Design System",
+    "version": "1.0.0",
+    "description": "Design Tokens für Website + Portal/App-UI. Arbeitsname VERDA – Markenname zentral austauschbar.",
+    "baseUnit": 4
+  },
+
+  "color": {
+    "forest": {
+      "50":  { "$value": "#F3F7EE", "$type": "color" },
+      "100": { "$value": "#E5EED4", "$type": "color", "$description": "Sage – Karten- und Sektionshintergrund" },
+      "200": { "$value": "#CFE0B4", "$type": "color" },
+      "300": { "$value": "#AFC98D", "$type": "color" },
+      "400": { "$value": "#86AA67", "$type": "color" },
+      "500": { "$value": "#64925C", "$type": "color", "$description": "Spring – Icons, Links, Erfolg" },
+      "600": { "$value": "#4B7345", "$type": "color" },
+      "700": { "$value": "#3A5936", "$type": "color" },
+      "800": { "$value": "#29452A", "$type": "color" },
+      "900": { "$value": "#1D3A22", "$type": "color", "$description": "Markenfarbe – Primärgrün (Tanne)" },
+      "950": { "$value": "#132A17", "$type": "color" }
+    },
+    "sun": {
+      "50":  { "$value": "#FFFFF0", "$type": "color" },
+      "100": { "$value": "#FFFFE0", "$type": "color" },
+      "200": { "$value": "#FEFDBE", "$type": "color" },
+      "300": { "$value": "#FDFB9C", "$type": "color", "$description": "Butter – Akzent-Button auf Dunkelgrün" },
+      "400": { "$value": "#FAF476", "$type": "color" },
+      "500": { "$value": "#F5EA4A", "$type": "color" },
+      "600": { "$value": "#EFDE0F", "$type": "color", "$description": "Hover/Active auf Butter" },
+      "700": { "$value": "#C7B70A", "$type": "color" }
+    },
+    "signal": {
+      "100": { "$value": "#F2FEDC", "$type": "color" },
+      "200": { "$value": "#E5FCB9", "$type": "color" },
+      "300": { "$value": "#D7F98B", "$type": "color", "$description": "KI-/Neu-Badge, Highlights" },
+      "400": { "$value": "#C3EF5F", "$type": "color" },
+      "500": { "$value": "#A8DB38", "$type": "color" }
+    },
+    "sand": {
+      "0":   { "$value": "#FFFFFF", "$type": "color" },
+      "25":  { "$value": "#FDFDFC", "$type": "color", "$description": "Seitenhintergrund" },
+      "50":  { "$value": "#F8F8F4", "$type": "color" },
+      "100": { "$value": "#EEEEE5", "$type": "color" },
+      "200": { "$value": "#DCDCD2", "$type": "color" },
+      "300": { "$value": "#C6C7BC", "$type": "color" },
+      "400": { "$value": "#AEB0A6", "$type": "color", "$description": "Text soft / Platzhalter" },
+      "500": { "$value": "#8B8E83", "$type": "color" },
+      "600": { "$value": "#5F625A", "$type": "color", "$description": "Fließtext" },
+      "700": { "$value": "#474A43", "$type": "color" },
+      "800": { "$value": "#33352F", "$type": "color" },
+      "900": { "$value": "#262821", "$type": "color", "$description": "Überschriften" },
+      "950": { "$value": "#171913", "$type": "color", "$description": "Ink – dunkelster Ton" }
+    },
+    "sky": {
+      "50":  { "$value": "#EAF2F8", "$type": "color" },
+      "100": { "$value": "#D4E4EF", "$type": "color" },
+      "300": { "$value": "#8FB9D3", "$type": "color" },
+      "500": { "$value": "#4181A6", "$type": "color", "$description": "Info" },
+      "700": { "$value": "#2B5771", "$type": "color" },
+      "900": { "$value": "#18303E", "$type": "color" }
+    },
+    "carnelian": {
+      "50":  { "$value": "#FBEAE7", "$type": "color" },
+      "100": { "$value": "#FAD9D1", "$type": "color" },
+      "500": { "$value": "#A82D1F", "$type": "color", "$description": "Fehler / Destruktiv" },
+      "700": { "$value": "#7E2117", "$type": "color" }
+    },
+    "amber": {
+      "50":  { "$value": "#FDF3E3", "$type": "color" },
+      "100": { "$value": "#FAE4C2", "$type": "color" },
+      "500": { "$value": "#C77E1D", "$type": "color", "$description": "Warnung" },
+      "700": { "$value": "#8F5A12", "$type": "color" }
+    },
+
+    "semantic": {
+      "bg": {
+        "base":       { "$value": "{color.sand.25}" },
+        "surface":    { "$value": "{color.sand.0}" },
+        "subtle":     { "$value": "{color.sand.50}" },
+        "muted":      { "$value": "{color.sand.100}" },
+        "brand":      { "$value": "{color.forest.900}" },
+        "brand-soft": { "$value": "{color.forest.100}" },
+        "brand-tint": { "$value": "{color.forest.50}" },
+        "accent":     { "$value": "{color.sun.300}" },
+        "signal":     { "$value": "{color.signal.300}" },
+        "inverse":    { "$value": "{color.sand.950}" }
+      },
+      "text": {
+        "primary":    { "$value": "{color.sand.900}" },
+        "secondary":  { "$value": "{color.sand.600}" },
+        "soft":       { "$value": "{color.sand.400}" },
+        "brand":      { "$value": "{color.forest.700}" },
+        "on-brand":   { "$value": "{color.forest.50}" },
+        "on-brand-muted": { "$value": "{color.forest.200}" },
+        "on-accent":  { "$value": "{color.sand.900}" },
+        "link":       { "$value": "{color.forest.700}" },
+        "danger":     { "$value": "{color.carnelian.500}" }
+      },
+      "border": {
+        "hairline":   { "$value": "rgba(23, 25, 19, 0.08)" },
+        "subtle":     { "$value": "{color.sand.200}" },
+        "strong":     { "$value": "{color.sand.300}" },
+        "brand":      { "$value": "{color.forest.900}" },
+        "focus":      { "$value": "{color.forest.600}" }
+      },
+      "status": {
+        "success-bg": { "$value": "{color.forest.100}" },
+        "success-fg": { "$value": "{color.forest.700}" },
+        "info-bg":    { "$value": "{color.sky.50}" },
+        "info-fg":    { "$value": "{color.sky.700}" },
+        "warning-bg": { "$value": "{color.amber.50}" },
+        "warning-fg": { "$value": "{color.amber.700}" },
+        "danger-bg":  { "$value": "{color.carnelian.50}" },
+        "danger-fg":  { "$value": "{color.carnelian.700}" }
+      }
+    }
+  },
+
+  "font": {
+    "family": {
+      "display": { "$value": "'Schibsted Grotesk', 'Helvetica Neue', Arial, sans-serif", "$type": "fontFamily", "$description": "Headlines & Wortmarke. Charakterstarke Grotesk (frei, Google Fonts) als Alternative zu ES Klarheit Grotesk." },
+      "body":    { "$value": "'Hanken Grotesk', 'Helvetica Neue', Arial, sans-serif", "$type": "fontFamily", "$description": "Fließtext & UI" },
+      "data":    { "$value": "'IBM Plex Mono', ui-monospace, monospace", "$type": "fontFamily", "$description": "Zahlen, Tabellen, Labels im Portal" }
+    },
+    "weight": {
+      "regular":  { "$value": 400 },
+      "medium":   { "$value": 500 },
+      "semibold": { "$value": 600 },
+      "bold":     { "$value": 700 }
+    },
+    "size": {
+      "display-xl": { "$value": "clamp(2.75rem, 1.5rem + 4.5vw, 4.5rem)", "lineHeight": 1.04, "letterSpacing": "-0.02em", "weight": 500 },
+      "display-lg": { "$value": "clamp(2.25rem, 1.35rem + 3.5vw, 3.5rem)", "lineHeight": 1.08, "letterSpacing": "-0.02em", "weight": 500 },
+      "h1": { "$value": "clamp(2rem, 1.4rem + 2.4vw, 2.75rem)", "lineHeight": 1.12, "letterSpacing": "-0.015em", "weight": 500 },
+      "h2": { "$value": "clamp(1.625rem, 1.3rem + 1.4vw, 2.25rem)", "lineHeight": 1.16, "letterSpacing": "-0.01em", "weight": 500 },
+      "h3": { "$value": "1.375rem", "lineHeight": 1.3, "weight": 500 },
+      "h4": { "$value": "1.125rem", "lineHeight": 1.4, "weight": 600 },
+      "body-lg": { "$value": "1.125rem", "lineHeight": 1.6 },
+      "body":    { "$value": "1rem", "lineHeight": 1.6 },
+      "body-sm": { "$value": "0.875rem", "lineHeight": 1.55 },
+      "caption": { "$value": "0.75rem", "lineHeight": 1.4, "letterSpacing": "0.08em", "transform": "uppercase", "weight": 600 },
+      "data":    { "$value": "0.8125rem", "lineHeight": 1.5 }
+    }
+  },
+
+  "size": {
+    "space": {
+      "0": "0", "1": "4px", "2": "8px", "3": "12px", "4": "16px", "5": "20px",
+      "6": "24px", "8": "32px", "10": "40px", "12": "48px", "16": "64px",
+      "20": "80px", "24": "96px", "30": "120px", "40": "160px"
+    },
+    "container": { "max": "1240px", "padding": "20px", "grid-gap": "20px" },
+    "nav": { "height": "72px", "height-mobile": "56px" },
+    "section": { "padding-y": "96px", "padding-y-mobile": "64px" },
+    "col": { "1": "232px", "2": "484px", "3": "736px" }
+  },
+
+  "radius": {
+    "$description": "sm ist der geteilte Arbeitsradius für Buttons UND Cards (wie im Vorbild). pill ist echten Kreisen/Chips vorbehalten – nie für Buttons.",
+    "xs":   { "$value": "4px",   "$description": "Tags, Checkbox/Radio-Box" },
+    "sm":   { "$value": "8px",   "$description": "Standard – Buttons, Cards, Inputs, Icon-Buttons" },
+    "md":   { "$value": "12px",  "$description": "Große Flächen – Dropdown, Modal, Bildkacheln" },
+    "lg":   { "$value": "16px",  "$description": "Seltene Ausnahme, z. B. Geräte-Illustration" },
+    "xl":   { "$value": "24px",  "$description": "Nicht für Standard-Komponenten verwenden" },
+    "2xl":  { "$value": "32px",  "$description": "Nicht für Standard-Komponenten verwenden" },
+    "pill": { "$value": "999px", "$description": "Nur Tags, Avatare, Schalter – nie Buttons" },
+    "circle": { "$value": "50%" }
+  },
+
+  "shadow": {
+    "xs": "0 1px 2px rgba(23,25,19,0.06)",
+    "sm": "0 2px 8px rgba(23,25,19,0.06)",
+    "md": "0 8px 24px rgba(23,25,19,0.08)",
+    "lg": "0 16px 48px rgba(23,25,19,0.12)",
+    "hairline": "inset 0 0 0 1px rgba(23,25,19,0.08)",
+    "focus": "0 0 0 3px rgba(75,115,69,0.30)"
+  },
+
+  "motion": {
+    "duration": {
+      "instant": "100ms",
+      "fast": "200ms",
+      "base": "300ms",
+      "slow": "500ms",
+      "reveal": "700ms"
+    },
+    "easing": {
+      "standard": "cubic-bezier(0.4, 0, 0.2, 1)",
+      "out": "cubic-bezier(0.16, 1, 0.3, 1)",
+      "in-out": "cubic-bezier(0.65, 0, 0.35, 1)"
+    }
+  },
+
+  "breakpoint": {
+    "sm": "480px",
+    "md": "768px",
+    "lg": "992px",
+    "xl": "1240px"
+  },
+
+  "z": {
+    "base": 0, "raised": 10, "sticky": 100, "overlay": 500, "modal": 600, "toast": 700
+  }
+}

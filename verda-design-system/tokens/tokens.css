@@ -1,0 +1,243 @@
+/* ============================================================
+   VERDA Design System · tokens.css · v1.0.0
+   Quelle der Wahrheit: tokens/design-tokens.json
+   Einbinden VOR allen Komponenten-Styles.
+   ============================================================ */
+
+:root {
+  /* ---------- Farb-Primitives ---------- */
+  /* Forest – Markengrün */
+  --forest-50:  #F3F7EE;
+  --forest-100: #E5EED4;   /* Sage: Karten/Sektionen */
+  --forest-200: #CFE0B4;
+  --forest-300: #AFC98D;
+  --forest-400: #86AA67;
+  --forest-500: #64925C;   /* Spring: Icons, Erfolg */
+  --forest-600: #4B7345;
+  --forest-700: #3A5936;
+  --forest-800: #29452A;
+  --forest-900: #1D3A22;   /* Primärgrün */
+  --forest-950: #132A17;
+
+  /* Sun – Butter-Akzent */
+  --sun-50:  #FFFFF0;
+  --sun-100: #FFFFE0;
+  --sun-200: #FEFDBE;
+  --sun-300: #FDFB9C;      /* Akzent-Button */
+  --sun-400: #FAF476;
+  --sun-500: #F5EA4A;
+  --sun-600: #EFDE0F;
+  --sun-700: #C7B70A;
+
+  /* Signal – KI/Neu-Lime */
+  --signal-100: #F2FEDC;
+  --signal-200: #E5FCB9;
+  --signal-300: #D7F98B;   /* KI-Badge */
+  --signal-400: #C3EF5F;
+  --signal-500: #A8DB38;
+
+  /* Sand – warme Neutrale */
+  --sand-0:   #FFFFFF;
+  --sand-25:  #FDFDFC;     /* Seitenhintergrund */
+  --sand-50:  #F8F8F4;
+  --sand-100: #EEEEE5;
+  --sand-200: #DCDCD2;
+  --sand-300: #C6C7BC;
+  --sand-400: #AEB0A6;
+  --sand-500: #8B8E83;
+  --sand-600: #5F625A;     /* Fließtext */
+  --sand-700: #474A43;
+  --sand-800: #33352F;
+  --sand-900: #262821;     /* Überschriften */
+  --sand-950: #171913;
+
+  /* Sky – Info */
+  --sky-50:  #EAF2F8;
+  --sky-100: #D4E4EF;
+  --sky-300: #8FB9D3;
+  --sky-500: #4181A6;
+  --sky-700: #2B5771;
+  --sky-900: #18303E;
+
+  /* Carnelian – Fehler */
+  --carnelian-50:  #FBEAE7;
+  --carnelian-100: #FAD9D1;
+  --carnelian-500: #A82D1F;
+  --carnelian-700: #7E2117;
+
+  /* Amber – Warnung */
+  --amber-50:  #FDF3E3;
+  --amber-100: #FAE4C2;
+  --amber-500: #C77E1D;
+  --amber-700: #8F5A12;
+
+  /* ---------- Semantische Tokens ---------- */
+  --bg-base:        var(--sand-25);
+  --bg-surface:     var(--sand-0);
+  --bg-subtle:      var(--sand-50);
+  --bg-muted:       var(--sand-100);
+  --bg-brand:       var(--forest-900);
+  --bg-brand-soft:  var(--forest-100);
+  --bg-brand-tint:  var(--forest-50);
+  --bg-accent:      var(--sun-300);
+  --bg-signal:      var(--signal-300);
+  --bg-inverse:     var(--sand-950);
+
+  --text-primary:        var(--sand-900);
+  --text-secondary:      var(--sand-600);
+  --text-soft:           var(--sand-400);
+  --text-brand:          var(--forest-700);
+  --text-on-brand:       var(--forest-50);
+  --text-on-brand-muted: var(--forest-200);
+  --text-on-accent:      var(--sand-900);
+  --text-link:           var(--forest-700);
+  --text-danger:         var(--carnelian-500);
+
+  --border-hairline: rgba(23, 25, 19, 0.08);
+  --border-subtle:   var(--sand-200);
+  --border-strong:   var(--sand-300);
+  --border-brand:    var(--forest-900);
+  --border-focus:    var(--forest-600);
+
+  --status-success-bg: var(--forest-100);
+  --status-success-fg: var(--forest-700);
+  --status-info-bg:    var(--sky-50);
+  --status-info-fg:    var(--sky-700);
+  --status-warning-bg: var(--amber-50);
+  --status-warning-fg: var(--amber-700);
+  --status-danger-bg:  var(--carnelian-50);
+  --status-danger-fg:  var(--carnelian-700);
+
+  /* ---------- Typografie ---------- */
+  --font-display: 'Schibsted Grotesk', 'Helvetica Neue', Arial, sans-serif;
+  --font-body:    'Hanken Grotesk', 'Helvetica Neue', Arial, sans-serif;
+  --font-data:    'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
+
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  --fs-display-xl: clamp(2.75rem, 1.5rem + 4.5vw, 4.5rem);
+  --fs-display-lg: clamp(2.25rem, 1.35rem + 3.5vw, 3.5rem);
+  --fs-h1: clamp(2rem, 1.4rem + 2.4vw, 2.75rem);
+  --fs-h2: clamp(1.625rem, 1.3rem + 1.4vw, 2.25rem);
+  --fs-h3: 1.375rem;
+  --fs-h4: 1.125rem;
+  --fs-body-lg: 1.125rem;
+  --fs-body: 1rem;
+  --fs-body-sm: 0.875rem;
+  --fs-caption: 0.75rem;
+  --fs-data: 0.8125rem;
+
+  --lh-tight: 1.08;
+  --lh-heading: 1.16;
+  --lh-body: 1.6;
+
+  --ls-display: -0.02em;
+  --ls-heading: -0.01em;
+  --ls-caption: 0.08em;
+
+  /* ---------- Abstände & Layout ---------- */
+  --space-1: 4px;   --space-2: 8px;   --space-3: 12px;  --space-4: 16px;
+  --space-5: 20px;  --space-6: 24px;  --space-8: 32px;  --space-10: 40px;
+  --space-12: 48px; --space-16: 64px; --space-20: 80px; --space-24: 96px;
+  --space-30: 120px;
+
+  --container-max: 1240px;
+  --container-pad: 20px;
+  --grid-gap: 20px;
+  --nav-height: 72px;
+  --nav-height-mobile: 56px;
+  --section-y: 96px;
+  --section-y-mobile: 64px;
+
+  /* ---------- Radien ----------
+     sm (8px) ist der geteilte Arbeitsradius: Buttons UND Cards nutzen denselben Wert.
+     md (12px) nur für größere Flächen (Dropdown, Modal, Bildkacheln).
+     pill ist echten Kreisen/Chips vorbehalten: Tags, Avatare, Schalter – NIE für Buttons. */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+  --radius-pill: 999px;
+
+  /* ---------- Schatten ---------- */
+  --shadow-xs: 0 1px 2px rgba(23,25,19,0.06);
+  --shadow-sm: 0 2px 8px rgba(23,25,19,0.06);
+  --shadow-md: 0 8px 24px rgba(23,25,19,0.08);
+  --shadow-lg: 0 16px 48px rgba(23,25,19,0.12);
+  --shadow-hairline: inset 0 0 0 1px rgba(23,25,19,0.08);
+  --shadow-focus: 0 0 0 3px rgba(75,115,69,0.30);
+
+  /* ---------- Motion ---------- */
+  --dur-instant: 100ms;
+  --dur-fast: 200ms;
+  --dur-base: 300ms;
+  --dur-slow: 500ms;
+  --dur-reveal: 700ms;
+
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+  /* ---------- Z-Index ---------- */
+  --z-raised: 10;
+  --z-sticky: 100;
+  --z-overlay: 500;
+  --z-modal: 600;
+  --z-toast: 700;
+}
+
+/* ---------- Basis-Reset & Defaults ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg-base);
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-display);
+  color: var(--text-primary);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-heading);
+  margin: 0 0 0.5em;
+}
+
+a { color: var(--text-link); }
+
+:focus-visible {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 2px;
+  border-radius: var(--radius-xs);
+}
+
+/* Dunkle Sektionen: semantische Tokens umschalten */
+[data-theme="brand"] {
+  --bg-base: var(--forest-900);
+  --bg-surface: var(--forest-800);
+  --bg-subtle: var(--forest-950);
+  --text-primary: var(--forest-50);
+  --text-secondary: var(--forest-200);
+  --text-link: var(--sun-300);
+  --border-hairline: rgba(255, 255, 255, 0.12);
+  --border-subtle: rgba(255, 255, 255, 0.18);
+}
+
+/* Reduzierte Bewegung respektieren */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
