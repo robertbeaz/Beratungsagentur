@@ -220,7 +220,7 @@ export function HeroShowcase({ eyebrow, title, lead, secondaryLabel, secondaryHr
 
       <div className="relative mx-auto max-w-container text-center">
         {eyebrow && (
-          <p className="m-0 mb-3 animate-fade-up">
+          <p className="m-0 mb-3 hidden animate-fade-up sm:block">
             <span className="inline-flex items-center gap-2 rounded-pill bg-sand-0/70 px-4 py-1.5 text-body-sm font-semibold text-forest-800 shadow-hairline">
               {eyebrow}
             </span>
