@@ -25,11 +25,11 @@ const dataFont = IBM_Plex_Mono({
 
 export const metadata = {
   title: {
-    default: `${site.name} – Digitale Prozesse für Versicherungsmakler, Baufinanzierer & Immobilienprofis`,
+    default: `${site.name} – Das digitale Betriebssystem für Versicherungsagenturen`,
     template: `%s | ${site.name}`,
   },
   description:
-    'CRM-Einführung, Automatisierung und Kundenkommunikation für Versicherungsagenturen, Makler, Baufinanzierer und Immobilienprofis. Weniger Verwaltung, mehr Zeit für Beratung.',
+    'CRM-Einführung, Automatisierung und Kundenkommunikation für Versicherungsagenturen – eingerichtet, verbunden und im Team geschult. Weniger Verwaltung, mehr Zeit für Beratung.',
 };
 
 export default function RootLayout({ children }) {

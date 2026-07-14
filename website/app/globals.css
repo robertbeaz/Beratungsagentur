@@ -114,6 +114,7 @@ h1, h2, h3, h4, h5 {
   font-weight: 500;
   letter-spacing: -0.01em;
   margin: 0 0 0.5em;
+  overflow-wrap: break-word;
 }
 
 a { color: var(--text-link); }

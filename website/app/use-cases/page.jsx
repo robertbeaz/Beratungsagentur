@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import { PageHeader, CtaBand, Reveal } from '../../components/sections';
-import { Icon } from '../../components/primitives';
+import { PageHeader, CtaBand, Reveal, TestimonialsGrid } from '../../components/sections';
+import { Icon, KiBadge } from '../../components/primitives';
 import { useCases, testimonials } from '../../components/site';
 import {
   DashboardMockup,
@@ -12,7 +12,7 @@ import {
 export const metadata = {
   title: 'Use Cases – So setzen wir digitale Prozesse um',
   description:
-    'Konkrete Implementierungen für Versicherungsmakler, Baufinanzierer und Immobilienprofis: wie umgesetzt wurde, wie lange es gedauert hat und was es an Zeit und Ertrag gebracht hat.',
+    'Konkrete Implementierungen für Versicherungsagenturen: wie umgesetzt wurde, wie lange es gedauert hat und was es an Zeit und Ertrag gebracht hat.',
 };
 
 function CaseVisual({ visual }) {
@@ -76,15 +76,27 @@ function UseCaseCard({ c, index }) {
               </ol>
             </div>
 
-            <div className="mt-7 flex flex-wrap items-center gap-2">
-              {c.tools.map((t) => (
-                <span key={t} className="rounded-pill bg-sand-100 px-3 py-1 text-body-sm font-semibold text-sand-700">
-                  {t}
-                </span>
-              ))}
+            <div className="mt-7">
+              <p className="mb-4 text-body-sm font-semibold uppercase tracking-widest text-sand-500">Umgesetzt mit</p>
+              <div className="grid gap-3 sm:grid-cols-2">
+                {c.tools.map((t) => (
+                  <div key={t.name} className="flex items-start gap-3 rounded-sm bg-sand-50 p-3.5">
+                    <span className="mt-0.5 inline-grid h-8 w-8 shrink-0 place-items-center rounded-sm bg-forest-100 text-forest-700">
+                      {t.ki ? <KiBadge>KI</KiBadge> : <Icon name={t.icon} size={16} />}
+                    </span>
+                    <div className="min-w-0">
+                      <p className="m-0 font-semibold text-sand-900">{t.name}</p>
+                      <p className="m-0 text-body-sm text-sand-600">{t.role}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="mt-7">
               <Link
                 href={c.serviceHref}
-                className="ml-auto inline-flex items-center gap-1.5 text-body-sm font-semibold text-forest-700 no-underline hover:text-forest-900"
+                className="inline-flex items-center gap-1.5 text-body-sm font-semibold text-forest-700 no-underline hover:text-forest-900"
               >
                 {c.serviceLabel}
                 <Icon name="arrow-right" size={15} />
@@ -92,14 +104,19 @@ function UseCaseCard({ c, index }) {
             </div>
           </div>
 
-          {/* Illustration + Ergebnis */}
-          <div className={`flex flex-col justify-between gap-8 bg-forest-100 p-8 md:p-10 ${reversed ? 'md:order-1' : ''}`}>
+          {/* Illustration + Verbesserung + Ergebnis */}
+          <div className={`flex flex-col justify-between gap-6 bg-forest-100 p-8 md:p-10 ${reversed ? 'md:order-1' : ''}`}>
             <CaseVisual visual={c.visual} />
             <div>
               <p className="m-0 mb-4 inline-flex items-center gap-2 rounded-pill bg-sand-0/70 px-3.5 py-1.5 text-body-sm font-semibold text-forest-900">
                 <Icon name="calendar" size={15} />
                 {c.duration}
               </p>
+              {c.improvement && (
+                <p className="m-0 mb-5 text-body-sm text-forest-950">
+                  <span className="font-semibold">Verbesserung: </span>{c.improvement}
+                </p>
+              )}
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="rounded-sm bg-sand-0 p-5">
                   <p className="m-0 mb-1 flex items-center gap-1.5 text-body-sm font-semibold uppercase tracking-widest text-sand-500">
@@ -131,7 +148,7 @@ export default function UseCasesPage() {
         eyebrow="Use Cases"
         eyebrowIcon="chart"
         title="So sieht Umsetzung bei uns aus."
-        lead="Fünf Implementierungen aus Versicherung, Baufinanzierung und Immobilien: was das Problem war, wie wir es gelöst haben – und was es an Zeit und Ertrag gebracht hat."
+        lead="Sechs Implementierungen aus dem Agenturalltag: was das Problem war, wie wir es gelöst haben – und was es an Zeit und Ertrag gebracht hat."
       />
 
       <section className="px-5 py-section-m md:py-section">
@@ -140,32 +157,7 @@ export default function UseCasesPage() {
         </div>
       </section>
 
-      {/* Kundenstimmen */}
-      <section className="bg-forest-100 px-5 py-section-m md:py-section">
-        <div className="mx-auto max-w-container">
-          <Reveal>
-            <h2 className="max-w-xl font-display text-display-lg text-forest-950">
-              Was Kunden nach der Zusammenarbeit sagen
-            </h2>
-          </Reveal>
-          <div className="mt-12 grid gap-5 md:grid-cols-3">
-            {testimonials.map((t, i) => (
-              <Reveal key={t.name} delay={i * 90}>
-                <figure className="m-0 flex h-full flex-col rounded-sm bg-sand-0 p-6 md:p-8">
-                  <div className="mb-4 flex gap-1 text-forest-500">
-                    {[...Array(5)].map((_, j) => <Icon key={j} name="star" size={16} />)}
-                  </div>
-                  <blockquote className="m-0 flex-1 text-sand-700">„{t.quote}“</blockquote>
-                  <figcaption className="mt-6">
-                    <span className="block font-semibold text-sand-900">{t.name}</span>
-                    <span className="block text-body-sm text-sand-500">{t.role}</span>
-                  </figcaption>
-                </figure>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
+      <TestimonialsGrid testimonials={testimonials} />
 
       <CtaBand
         title="Ihr Betrieb könnte der nächste sein."

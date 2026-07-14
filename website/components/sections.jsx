@@ -252,9 +252,9 @@ export function HeroShowcase({ eyebrow, title, lead, secondaryLabel, secondaryHr
 
 /* ---------- Feature-Stepper (Leistungen im Wechsel, Nelly-Muster) ---------- */
 const stepperMedia = {
-  'crm-und-daten': <DashboardMockup />,
-  'automatisierung-und-ki': <FlowIllustration />,
-  'kundenkommunikation': <PhoneChatMockup />,
+  'digitale-agentur': <DashboardMockup />,
+  'ki-assistenz': <FlowIllustration />,
+  'kundenmagnet': <PhoneChatMockup />,
 };
 
 export function FeatureStepper({ title = 'Drei Bausteine für einen Betrieb, der von selbst läuft.' }) {
@@ -278,6 +278,11 @@ export function FeatureStepper({ title = 'Drei Bausteine für einen Betrieb, der
                   </p>
                   <h3 className="font-display text-h2 text-sand-900">{s.title}</h3>
                   <p className="mt-3 text-sand-600">{s.teaser}</p>
+                  {s.price && (
+                    <p className="m-0 mt-4 font-display text-h4 font-medium text-forest-800">
+                      ab {s.price.from} <span className="font-body text-body-sm font-normal text-sand-500">Festpreis, einmalig</span>
+                    </p>
+                  )}
                   <div className="mt-6 flex flex-wrap items-center gap-5">
                     <ButtonLink href={`/leistungen/${s.slug}`} variant="secondary">Mehr erfahren</ButtonLink>
                     <button
@@ -426,6 +431,37 @@ export function Testimonial({ quote, name, role }) {
   );
 }
 
+/* ---------- Testimonials-Grid (mehrere Stimmen nebeneinander) ----------
+   tone="sage" (Standard) für einen grünen Block zwischen weißen Sections;
+   tone="plain" wenn die vorherige Section bereits grün ist (kein Doppel-Grün). */
+export function TestimonialsGrid({ title = 'Was Kunden nach der Zusammenarbeit sagen', testimonials = [], tone = 'sage' }) {
+  return (
+    <section className={`px-5 py-section-m md:py-section ${tone === 'sage' ? 'bg-forest-100' : ''}`}>
+      <div className="mx-auto max-w-container">
+        <Reveal>
+          <h2 className={`max-w-xl font-display text-display-lg ${tone === 'sage' ? 'text-forest-950' : 'text-sand-900'}`}>{title}</h2>
+        </Reveal>
+        <div className="mt-12 grid gap-5 md:grid-cols-3">
+          {testimonials.map((t, i) => (
+            <Reveal key={t.name} delay={i * 90}>
+              <figure className={`m-0 flex h-full flex-col rounded-sm p-6 md:p-8 ${tone === 'sage' ? 'bg-sand-0' : 'bg-sand-0 shadow-hairline'}`}>
+                <div className="mb-4 flex gap-1 text-forest-500">
+                  {[...Array(5)].map((_, j) => <Icon key={j} name="star" size={16} />)}
+                </div>
+                <blockquote className="m-0 flex-1 text-sand-700">„{t.quote}“</blockquote>
+                <figcaption className="mt-6">
+                  <span className="block font-semibold text-sand-900">{t.name}</span>
+                  <span className="block text-body-sm text-sand-500">{t.role}</span>
+                </figcaption>
+              </figure>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ---------- FAQ ---------- */
 export function FaqSection({ title = 'Häufige Fragen', items = [] }) {
   return (
@@ -450,9 +486,9 @@ const footerColumns = [
   {
     title: 'Leistungen',
     links: [
-      { label: 'CRM & Datenstruktur', href: '/leistungen/crm-und-daten' },
-      { label: 'Automatisierung & KI', href: '/leistungen/automatisierung-und-ki' },
-      { label: 'Marketing & Kundenkommunikation', href: '/leistungen/kundenkommunikation' },
+      { label: 'Digitale Agentur', href: '/leistungen/digitale-agentur' },
+      { label: 'Kundenmagnet', href: '/leistungen/kundenmagnet' },
+      { label: 'KI-Assistenz', href: '/leistungen/ki-assistenz' },
     ],
   },
   {
@@ -480,9 +516,8 @@ export function Footer() {
           <div>
             <Wordmark className="!text-sand-25" />
             <p className="mt-4 max-w-xs text-body-sm text-sand-400">
-              Beratung und Implementierung digitaler Prozesse für Versicherungsmakler,
-              Baufinanzierer und Immobilienprofis – herstellerunabhängig, von der
-              Analyse bis zur Schulung.
+              Beratung und Implementierung digitaler Prozesse für Versicherungsagenturen –
+              herstellerunabhängig, von der Analyse bis zur Schulung.
             </p>
           </div>
           {footerColumns.map((col) => (

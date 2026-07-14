@@ -231,13 +231,13 @@ export function PhoneChatMockup() {
           {/* Nachrichten */}
           <div className="space-y-2.5 p-3">
             <div className="max-w-[85%] rounded-md rounded-bl-xs bg-sand-0 p-2.5 text-[0.8125rem] leading-snug text-sand-800 shadow-hairline">
-              Guten Abend! Ist die Wohnung in der Gartenstraße noch verfügbar?
+              Guten Abend! Können Sie mir kurz zur Hausratversicherung schreiben?
               <span className="mt-1 block text-right text-[0.625rem] text-sand-400">21:47</span>
             </div>
             <div className="ml-auto max-w-[85%] rounded-md rounded-br-xs bg-forest-100 p-2.5 text-[0.8125rem] leading-snug text-forest-950">
-              Ja! Hier können Sie direkt eine Besichtigung buchen – wir melden uns morgen früh persönlich.
+              Gern! Hier finden Sie Ihren Tarif im Überblick – wir melden uns morgen früh persönlich.
               <span className="mt-1.5 block rounded-sm bg-sand-0/80 px-2 py-1 text-center text-[0.75rem] font-semibold text-forest-800">
-                📅 Termin auswählen
+                📋 Tarif ansehen
               </span>
               <span className="mt-1 block text-right text-[0.625rem] text-sand-500">21:47 ✓✓</span>
             </div>
@@ -387,10 +387,10 @@ export function HeroWidgets() {
       <FloatCard rot={-5} className="left-[3.5%] top-14 w-56 2xl:left-[5%]">
         <div className="space-y-1.5">
           <div className="max-w-[88%] rounded-sm rounded-bl-xs bg-sand-50 px-2.5 py-1.5 text-[0.75rem] leading-snug text-sand-800">
-            Ist die Wohnung noch frei?
+            Ich möchte einen Schaden melden.
           </div>
           <div className="ml-auto max-w-[88%] rounded-sm rounded-br-xs bg-forest-100 px-2.5 py-1.5 text-[0.75rem] leading-snug text-forest-950">
-            Ja! Buchen Sie hier direkt eine Besichtigung. 📅
+            Klar! Hier können Sie ihn direkt melden. 📋
           </div>
           <div className="flex justify-end">
             <span className="inline-flex items-center gap-1 rounded-pill bg-signal-100 px-2 py-0.5 text-[0.625rem] font-medium text-forest-800">
@@ -422,7 +422,7 @@ export function HeroWidgets() {
             <Icon name="document" size={17} />
           </span>
           <div className="min-w-0 leading-tight">
-            <p className="m-0 text-[0.75rem] font-semibold text-sand-900">Maklervollmacht.pdf</p>
+            <p className="m-0 text-[0.75rem] font-semibold text-sand-900">Vollmacht.pdf</p>
             <p className="m-0 text-[0.6875rem] text-sand-500">digital signiert</p>
           </div>
           <span className="ml-auto grid h-5 w-5 shrink-0 place-items-center rounded-pill bg-forest-100 text-forest-700">
@@ -531,10 +531,10 @@ export function MiniChatPhone() {
         </div>
         <div className="space-y-2 p-2.5">
           <div className="max-w-[88%] rounded-md rounded-bl-xs bg-sand-0 p-2 text-[0.6875rem] leading-snug text-sand-800 shadow-hairline">
-            Ist die Wohnung noch verfügbar?
+            Was kostet eine KFZ-Versicherung für mich?
           </div>
           <div className="ml-auto max-w-[88%] rounded-md rounded-br-xs bg-forest-100 p-2 text-[0.6875rem] leading-snug text-forest-950">
-            Ja! Buchen Sie hier direkt eine Besichtigung.
+            Gern! Buchen Sie hier direkt einen Beratungstermin.
             <span className="mt-1 block rounded-xs bg-sand-0/80 px-1.5 py-0.5 text-center text-[0.625rem] font-semibold text-forest-800">
               📅 Termin auswählen
             </span>
@@ -633,6 +633,91 @@ export function IntegrationIllustration() {
         <div className="mx-auto h-9 w-14 bg-forest-200" />
         <div className="mx-auto h-2.5 w-24 rounded-sm bg-forest-300" />
       </div>
+    </div>
+  );
+}
+
+/* ---------- Drei-Pakete-Illustration (Leistungsseite-Hero) ----------
+   Drei Karten – ein Modul je Paket – stehen auf einer gemeinsamen
+   Basisleiste: das „digitale Betriebssystem" der Agentur. Die mittlere
+   Karte (Kundenmagnet) ist leicht angehoben, um Wachstum zu betonen. */
+const packagePillars = [
+  {
+    icon: 'chart',
+    label: 'Digitale Agentur',
+    tone: 'bg-forest-900 text-forest-100',
+    lift: false,
+  },
+  {
+    icon: 'trend',
+    label: 'Kundenmagnet',
+    tone: 'bg-forest-600 text-forest-50',
+    lift: true,
+  },
+  {
+    icon: 'settings',
+    label: 'KI-Assistenz',
+    tone: 'bg-forest-900 text-forest-100',
+    lift: false,
+    ki: true,
+  },
+];
+
+function PillarVisual({ index }) {
+  if (index === 0) {
+    return (
+      <div className="mt-4 space-y-1.5">
+        <span className="block h-1.5 w-full rounded-pill bg-sand-100" />
+        <span className="block h-1.5 w-3/4 rounded-pill bg-sand-100" />
+        <div className="mt-2 flex items-center gap-1.5">
+          <span className="h-2 w-2 rounded-pill bg-forest-500" />
+          <span className="block h-1.5 w-2/3 rounded-pill bg-sand-200" />
+        </div>
+      </div>
+    );
+  }
+  if (index === 1) {
+    return (
+      <div className="mt-4">
+        <svg viewBox="0 0 100 32" className="h-8 w-full text-forest-500" aria-hidden="true">
+          <path d="M2 26 C 20 28, 30 10, 45 16 C 60 22, 68 4, 98 6" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+        </svg>
+        <span className="mt-1.5 inline-flex items-center rounded-pill bg-forest-100 px-2 py-0.5 text-[0.625rem] font-semibold text-forest-800">
+          +3× Termine
+        </span>
+      </div>
+    );
+  }
+  return (
+    <div className="mt-4 space-y-1.5">
+      <div className="max-w-[85%] rounded-sm rounded-bl-xs bg-sand-100 px-2 py-1 text-[0.625rem] leading-snug text-sand-700">
+        Was kostet Tarif Plus?
+      </div>
+      <div className="ml-auto flex max-w-[85%] items-center gap-1 rounded-sm rounded-br-xs bg-forest-700 px-2 py-1 text-[0.625rem] leading-snug text-forest-50">
+        <KiBadge>KI</KiBadge> Antwort in Sekunden
+      </div>
+    </div>
+  );
+}
+
+export function PackagesIllustration() {
+  return (
+    <div aria-hidden="true" className="mx-auto grid w-full max-w-lg grid-cols-3 items-end gap-4 pt-6">
+      {packagePillars.map((p, i) => (
+        <div key={p.label} className={p.lift ? '-translate-y-4' : ''}>
+          <div className={`rounded-md p-4 shadow-lg sm:p-5 ${p.tone}`}>
+            <span className="inline-grid h-9 w-9 place-items-center rounded-sm bg-sand-0/15">
+              <Icon name={p.icon} size={18} />
+            </span>
+            <PillarVisual index={i} />
+          </div>
+          <p className="m-0 mt-3 text-center text-[0.75rem] font-semibold leading-snug text-sand-800">
+            {p.label}
+          </p>
+        </div>
+      ))}
+      {/* Gemeinsame Basisleiste – das „Betriebssystem", auf dem alle drei Pakete laufen */}
+      <div className="col-span-3 mt-1 h-2 rounded-pill bg-forest-200" />
     </div>
   );
 }

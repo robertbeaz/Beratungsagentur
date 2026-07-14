@@ -5,7 +5,7 @@ import { tools } from '../../components/site';
 export const metadata = {
   title: 'Über uns – Beratung, die umsetzt',
   description:
-    'Wir sind eine Digitalberatung für Versicherungsmakler, Baufinanzierer und Immobilienprofis. Keine Konzepte für die Schublade – wir setzen um.',
+    'Wir sind eine Digitalberatung für Versicherungsagenturen. Keine Konzepte für die Schublade – wir setzen um.',
 };
 
 const values = [
@@ -17,7 +17,7 @@ const values = [
   {
     icon: 'shield',
     title: 'Branchenkenntnis',
-    text: 'Courtage, Bestandsübertragung, Objektakquise, § 34d – wir kennen die Begriffe und Abläufe Ihrer Branche und müssen nicht bei null anfangen.',
+    text: 'Provision, Bestandsübertragung, Deckungskonzepte, § 34d – wir kennen die Begriffe und Abläufe Ihrer Branche und müssen nicht bei null anfangen.',
   },
   {
     icon: 'user',
@@ -37,8 +37,8 @@ export default function UeberUnsPage() {
       <PageHeader
         eyebrow="Über uns"
         eyebrowIcon="user"
-        title="Wir bauen die Systeme, mit denen Vermittler wieder verkaufen können."
-        lead="Digitalisierung scheitert in Vermittlerbetrieben selten an der Technik – sondern daran, dass niemand Zeit hat, sie richtig einzuführen. Genau diese Lücke füllen wir."
+        title="Wir bauen die Systeme, mit denen Versicherungsagenturen wieder verkaufen können."
+        lead="Digitalisierung scheitert in Versicherungsagenturen selten an der Technik – sondern daran, dass niemand Zeit hat, sie richtig einzuführen. Genau diese Lücke füllen wir."
       />
 
       {/* Story */}
@@ -50,10 +50,10 @@ export default function UeberUnsPage() {
           <Reveal delay={100}>
             <div className="space-y-5 text-body-lg text-sand-700">
               <p className="m-0">
-                Versicherungsmakler, Baufinanzierer und Immobilienprofis verdienen ihr Geld im
-                Gespräch – nicht in der Dateneingabe. Trotzdem verbringen die meisten Teams
-                einen erheblichen Teil ihrer Woche damit, Informationen zwischen Postfach,
-                Excel und Verwaltungsprogramm hin- und herzutragen.
+                Versicherungsagenturen verdienen ihr Geld im Gespräch – nicht in der
+                Dateneingabe. Trotzdem verbringen die meisten Teams einen erheblichen Teil
+                ihrer Woche damit, Informationen zwischen Postfach, Excel und Bestandssystem
+                hin- und herzutragen.
               </p>
               <p className="m-0">
                 Die Werkzeuge, die das lösen, existieren längst: CRM-Systeme, Automatisierungs-Plattformen,
@@ -62,7 +62,7 @@ export default function UeberUnsPage() {
               </p>
               <p className="m-0 font-semibold text-sand-900">
                 Genau das ist unsere Arbeit: Wir übersetzen Digitalisierung in Abläufe,
-                die im Vermittleralltag funktionieren.
+                die im Agenturalltag funktionieren.
               </p>
             </div>
           </Reveal>
@@ -109,8 +109,7 @@ export default function UeberUnsPage() {
               ))}
             </div>
             <p className="mt-6 max-w-2xl text-sand-600">
-              Und wenn Ihr Bestandssystem eine Schnittstelle hat, binden wir auch das an –
-              vom Maklerverwaltungsprogramm bis zur Immobiliensoftware.
+              Und wenn Ihr Bestandssystem eine Schnittstelle hat, binden wir auch das an.
             </p>
           </Reveal>
         </div>

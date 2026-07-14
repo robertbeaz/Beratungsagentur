@@ -33,7 +33,7 @@ function BentoCard({ tone = 'surface', item, children }) {
 const chipRows = [
   { offset: '-ml-12', items: ['Verträge & Policen', 'Leads aus Portalen', 'E-Mail-Verlauf', 'Termine & Wiedervorlagen'] },
   { offset: '-ml-4', items: ['Dokumente & Uploads', 'Beratungsprotokolle', 'Telefonnotizen', 'Angebote'] },
-  { offset: '-ml-16', items: ['Baufinanzierungs-Fälle', 'Objekte & Exposés', 'Newsletter-Status', 'Familien & Verbünde'] },
+  { offset: '-ml-16', items: ['Schadenfälle', 'Tarife & Deckungen', 'Newsletter-Status', 'Familien & Verbünde'] },
 ];
 
 function ChipsVisual() {
@@ -61,7 +61,7 @@ function ChipsVisual() {
 /* ---------- Visual: Benachrichtigungen (Wiedervorlagen) ---------- */
 const reminders = [
   { icon: 'bell', title: 'Wiedervorlage', time: 'jetzt', text: 'KFZ-Vertrag von Familie Berger läuft in 30 Tagen aus.' },
-  { icon: 'mic', title: 'Rückruf zugesagt', time: '14:00', text: 'Herr Schmidt wartet auf das Angebot zur Baufinanzierung.' },
+  { icon: 'mic', title: 'Rückruf zugesagt', time: '14:00', text: 'Herr Schmidt wartet auf das Angebot zur KFZ-Versicherung.' },
   { icon: 'document', title: 'Unterlagen offen', time: 'morgen', text: 'Selbstauskunft von Familie Weber noch nicht eingegangen.' },
 ];
 
@@ -142,7 +142,7 @@ function SignatureVisual() {
 
 /* ---------- Visual: Lead-Liste (Qualifizierung) ---------- */
 const leads = [
-  { initial: 'B', name: 'Familie Berger', sub: 'Baufinanzierung · Unterlagen vollständig', badge: 'A · heiß', badgeTone: 'bg-signal-300 text-sand-950' },
+  { initial: 'B', name: 'Familie Berger', sub: 'Schadenmeldung · Unterlagen vollständig', badge: 'A · heiß', badgeTone: 'bg-signal-300 text-sand-950' },
   { initial: 'S', name: 'Herr Schmidt', sub: 'PKV-Wechsel · Termin steht aus', badge: 'B · warm', badgeTone: 'bg-sun-300 text-sand-900' },
   { initial: 'W', name: 'Frau Weber', sub: 'Suchkundin · liest den Newsletter', badge: 'C · später', badgeTone: 'bg-sand-200 text-sand-700' },
 ];
@@ -202,46 +202,18 @@ function PhoneVisual() {
   );
 }
 
-/* ---------- Visual: Zeitlinie (Aktivitäten) ---------- */
-const timeline = [
-  { icon: 'mic', title: 'Anruf · 12 Min.', time: 'Heute, 09:12', sub: 'Notiz automatisch hinterlegt' },
-  { icon: 'document', title: 'Angebot versendet', time: 'Gestern, 16:40', sub: 'Tarifvergleich als PDF' },
-  { icon: 'calendar', title: 'Termin vereinbart', time: 'Di, 11:20', sub: 'Beratung am 14. März, 14:30 Uhr' },
-  { icon: 'signature', title: 'Vollmacht signiert', time: 'Mo, 08:05', sub: 'digital unterschrieben' },
+/* ---------- Visual: Schulungs-Nachweis (Team-Schulung) ---------- */
+const schulungChecks = [
+  'Praxisnahe Sessions im Tagesgeschäft',
+  'Dokumentation & Spickzettel je Arbeitsplatz',
+  'Ansprechpartner für Rückfragen',
+  'Neue Mitarbeiter selbst einarbeiten',
 ];
 
-function TimelineVisual() {
-  return (
-    <div className="relative flex flex-col gap-2.5">
-      <span className="absolute bottom-8 left-[23px] top-8 w-px border-l-2 border-dashed border-forest-300" />
-      {timeline.map((t) => (
-        <div key={t.title} className="relative flex items-center gap-3 rounded-md bg-sand-0 p-3 shadow-hairline">
-          <span className="grid h-9 w-9 shrink-0 place-items-center rounded-sm bg-forest-100 text-forest-700">
-            <Icon name={t.icon} size={17} />
-          </span>
-          <div className="min-w-0 leading-snug">
-            <p className="m-0 truncate text-[0.8125rem] font-semibold text-sand-900">{t.title}</p>
-            <p className="m-0 truncate text-[0.75rem] text-sand-500">{t.sub}</p>
-          </div>
-          <span className="ml-auto shrink-0 text-[0.6875rem] text-sand-400">{t.time}</span>
-        </div>
-      ))}
-    </div>
-  );
-}
-
-/* ---------- Visual: Checkliste (DSGVO) ---------- */
-const dsgvoChecks = [
-  'Einwilligungen & Opt-ins dokumentiert',
-  'AV-Verträge zentral hinterlegt',
-  'Auskunfts- & Löschfristen überwacht',
-  'Hosting in der EU',
-];
-
-function DsgvoVisual() {
+function SchulungVisual() {
   return (
     <div className="grid gap-2.5 sm:grid-cols-2">
-      {dsgvoChecks.map((c) => (
+      {schulungChecks.map((c) => (
         <div key={c} className="flex items-center gap-3 rounded-sm bg-sand-50 p-3.5">
           <span className="grid h-7 w-7 shrink-0 place-items-center rounded-pill bg-forest-100 text-forest-700">
             <Icon name="check" size={14} />
@@ -330,7 +302,7 @@ function NewsletterVisual() {
           </div>
         </div>
         <p className="m-0 mt-2.5 text-[0.8125rem] font-medium text-sand-800">
-          Zinswende: Was das für Ihre Anschlussfinanzierung bedeutet
+          Beitragsanpassung 2026: Was sich für Ihre Kunden ändert
         </p>
         <span className="mt-2.5 block h-2 w-11/12 rounded-pill bg-sand-100" />
         <span className="mt-1.5 block h-2 w-3/5 rounded-pill bg-sand-100" />
@@ -346,31 +318,6 @@ function NewsletterVisual() {
           </div>
         ))}
       </div>
-    </div>
-  );
-}
-
-/* ---------- Visual: Lead-Funnel ---------- */
-const funnelSteps = [
-  { value: '1.000', label: 'sehen die Anzeige', width: '100%' },
-  { value: '480', label: 'besuchen die Landingpage', width: '62%' },
-  { value: '96', label: 'füllen das Formular aus', width: '36%' },
-  { value: '31', label: 'buchen einen Termin', width: '20%', highlight: true },
-];
-
-function FunnelVisual() {
-  return (
-    <div className="grid gap-2.5 sm:grid-cols-4">
-      {funnelSteps.map((s) => (
-        <div key={s.label} className={`rounded-md p-3.5 ${s.highlight ? 'bg-forest-100' : 'bg-sand-50'}`}>
-          <div className="font-data text-h4 font-medium text-forest-900">{s.value}</div>
-          <p className="m-0 mt-0.5 text-[0.75rem] leading-snug text-sand-500">{s.label}</p>
-          <span
-            className={`mt-3 block h-1.5 rounded-pill ${s.highlight ? 'bg-forest-600' : 'bg-forest-300'}`}
-            style={{ width: s.width }}
-          />
-        </div>
-      ))}
     </div>
   );
 }
@@ -566,7 +513,7 @@ function SyncArrows() {
 
 const integrationSystems = [
   { icon: 'chart', label: 'CRM' },
-  { icon: 'document', label: 'Maklerverwaltung' },
+  { icon: 'document', label: 'Bestandssystem' },
   { icon: 'calendar', label: 'Kalender' },
   { icon: 'phone', label: 'Telefonanlage' },
 ];
@@ -624,54 +571,52 @@ function WorkflowsVisual() {
   );
 }
 
-/* ---------- Visual: KI DSGVO-konform (Grundsätze) ---------- */
-const kiDsgvoChecks = [
-  'KI nur dort, wo sie messbar Zeit spart',
-  'EU-Hosting, wo immer möglich',
-  'AV-Verträge & dokumentierte Datenflüsse',
-  'Keine Kundendaten für KI-Training',
-];
-
-function KiDsgvoVisual() {
+/* ---------- Visual: Terminbriefing (KI-Terminvorbereitung) ---------- */
+function TerminprepVisual() {
   return (
-    <div className="space-y-2.5">
-      {kiDsgvoChecks.map((c) => (
-        <div key={c} className="flex items-center gap-3 rounded-md bg-sand-0 p-3 shadow-hairline">
-          <span className="grid h-7 w-7 shrink-0 place-items-center rounded-pill bg-forest-100 text-forest-700">
-            <Icon name="shield" size={14} />
-          </span>
-          <p className="m-0 text-[0.8125rem] font-medium text-sand-800">{c}</p>
+    <div className="mx-auto w-full max-w-sm rounded-md bg-sand-0 p-4 shadow-hairline">
+      <div className="flex items-center gap-2.5">
+        <span className="grid h-9 w-9 shrink-0 place-items-center rounded-pill bg-forest-100 text-body-sm font-bold text-forest-800">F</span>
+        <div className="min-w-0 leading-snug">
+          <p className="m-0 truncate text-[0.8125rem] font-semibold text-sand-900">Familie Fischer · 14:30 Uhr</p>
+          <p className="m-0 text-[0.75rem] text-sand-500">Beratung Vertragsverlängerung</p>
         </div>
-      ))}
+      </div>
+      <p className="m-0 mt-3 flex items-center gap-1.5 text-[0.6875rem] font-semibold uppercase tracking-widest text-sand-400">
+        <KiBadge>KI</KiBadge> Briefing automatisch erstellt
+      </p>
+      <ul className="m-0 mt-2 list-none space-y-1.5 p-0 text-[0.8125rem] leading-snug text-sand-700">
+        <li>· KFZ-Vertrag läuft in 4 Monaten aus</li>
+        <li>· Letzter Kontakt: Newsletter-Klick vor 9 Tagen</li>
+        <li>· Vorschlag: zwei Tarife im Vergleich</li>
+      </ul>
     </div>
   );
 }
 
 /* ---------- Zuordnung key → Visual ---------- */
 const visuals = {
-  /* CRM & Datenstruktur */
+  /* Digitale Agentur */
   kundenverwaltung: <ChipsVisual />,
   wiedervorlagen: <RemindersVisual />,
   kalender: <CalendarVisual />,
   signaturen: <SignatureVisual />,
-  qualifizierung: <LeadsVisual />,
   telefonanlage: <PhoneVisual />,
-  zeitlinie: <TimelineVisual />,
-  dsgvo: <DsgvoVisual />,
-  /* Marketing & Kundenkommunikation */
+  schnittstellen: <IntegrationsVisual />,
   whatsapp: <WhatsAppVisual />,
-  bewertungen: <ReviewsVisual />,
-  newsletter: <NewsletterVisual />,
-  funnel: <FunnelVisual />,
-  websites: <WebsiteVisual />,
   formulare: <FormVisual />,
-  /* Automatisierung & KI */
+  workflows: <WorkflowsVisual />,
+  schulung: <SchulungVisual />,
+  /* Kundenmagnet */
+  websites: <WebsiteVisual />,
+  newsletter: <NewsletterVisual />,
+  bewertungen: <ReviewsVisual />,
+  qualifizierung: <LeadsVisual />,
+  /* KI-Assistenz */
   chatbots: <ChatbotVisual />,
   wissensdatenbank: <KnowledgeVisual />,
   telefonbots: <PhoneBotVisual />,
-  schnittstellen: <IntegrationsVisual />,
-  workflows: <WorkflowsVisual />,
-  'ki-dsgvo': <KiDsgvoVisual />,
+  terminprep: <TerminprepVisual />,
 };
 
 /* ---------- Section ----------

@@ -1,47 +1,18 @@
+import Link from 'next/link';
 import {
-  HeroShowcase, FeatureStepper, LogoMarquee, StatsSection, CtaBand, Testimonial, FaqSection, Reveal,
+  HeroShowcase, FeatureStepper, LogoMarquee, StatsSection, CtaBand, TestimonialsGrid, FaqSection, Reveal,
 } from '../components/sections';
 import { Icon, Eyebrow, TextLink } from '../components/primitives';
 import { IntegrationIllustration } from '../components/illustrations';
-import { processSteps, stats, testimonials, homeFaq, tools, audiences } from '../components/site';
+import { processSteps, stats, testimonials, homeFaq, tools, audiences, useCases } from '../components/site';
 
 export const metadata = {
-  title: 'VERDA – Digitalberatung & Implementierung für Versicherungsmakler, Baufinanzierer & Immobilienprofis',
+  title: 'VERDA – Das digitale Betriebssystem für Versicherungsagenturen',
 };
 
-/* ---------- Zielgruppen-Sektion ---------- */
-function AudienceSection() {
-  return (
-    <section className="px-5 py-section-m md:py-section">
-      <div className="mx-auto max-w-container">
-        <Reveal>
-          <Eyebrow icon="user">Für wen wir arbeiten</Eyebrow>
-          <h2 className="mt-3 max-w-2xl font-display text-display-lg text-sand-900">
-            Egal aus welcher Branche – wir kennen Ihre Prozesse.
-          </h2>
-        </Reveal>
-        <div className="mt-12 grid gap-5 md:grid-cols-3">
-          {audiences.map((a, i) => (
-            <Reveal key={a.label} delay={i * 90}>
-              <div className="flex h-full flex-col rounded-sm bg-sand-0 p-6 shadow-hairline md:p-8">
-                <span className="inline-grid h-12 w-12 place-items-center rounded-sm bg-forest-100 text-forest-700">
-                  <Icon name={a.icon} size={24} />
-                </span>
-                <h3 className="mt-5 font-display text-h3 text-sand-900">{a.label}</h3>
-                <p className="mt-2 flex-1 text-sand-600">{a.text}</p>
-                <div className="mt-5">
-                  <TextLink href={a.href}>{a.linkLabel}</TextLink>
-                </div>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ---------- Problem-Sektion ---------- */
+/* ---------- Problem-Sektion ----------
+   Direkt nach Hero & Vertrauensleiste: Schmerz zuerst benennen,
+   bevor die Lösung (Pakete) gezeigt wird (PAS-Prinzip). */
 const pains = [
   {
     icon: 'search',
@@ -96,10 +67,44 @@ function PainSection() {
   );
 }
 
+/* ---------- Brücke zu den Paketen ----------
+   Kurze Selbsteinordnung nach Größe, direkt vor den drei Paketen –
+   beantwortet „passt das zu meiner Agentur?", bevor die Lösung kommt. */
+function AudienceSection() {
+  return (
+    <section className="bg-sand-50 px-5 py-section-m md:py-section">
+      <div className="mx-auto max-w-container">
+        <Reveal>
+          <Eyebrow icon="user">Für jede Größe passend</Eyebrow>
+          <h2 className="mt-3 max-w-2xl font-display text-display-lg text-sand-900">
+            Vom Einzelbüro bis zum großen Team – für jede Größe das passende Paket.
+          </h2>
+        </Reveal>
+        <div className="mt-12 grid gap-5 md:grid-cols-3">
+          {audiences.map((a, i) => (
+            <Reveal key={a.label} delay={i * 90}>
+              <div className="flex h-full flex-col rounded-sm bg-sand-0 p-6 shadow-hairline md:p-8">
+                <span className="inline-grid h-12 w-12 place-items-center rounded-sm bg-forest-100 text-forest-700">
+                  <Icon name={a.icon} size={24} />
+                </span>
+                <h3 className="mt-5 font-display text-h3 text-sand-900">{a.label}</h3>
+                <p className="mt-2 flex-1 text-sand-600">{a.text}</p>
+                <div className="mt-5">
+                  <TextLink href={a.href}>{a.linkLabel}</TextLink>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ---------- Integrations-Sektion (Bestandssysteme & Schnittstellen) ---------- */
 const integrationPoints = [
   'E-Mail-Postfach & Kalender',
-  'Maklerverwaltungsprogramm',
+  'Bestandssystem',
   'Telefonanlage',
   'WhatsApp Business',
   'Bestehende Website & Formulare',
@@ -120,12 +125,12 @@ function IntegrationSection() {
             <div className="flex h-full flex-col rounded-md bg-forest-100 p-8 md:p-12">
               <h3 className="font-display text-h3 text-forest-950">Integriert in Ihre bestehende Software</h3>
               <p className="mt-3 max-w-lg text-sand-700">
-                Wir arbeiten mit dem, was Sie schon nutzen – Maklerverwaltungsprogramm,
-                Immobiliensoftware, E-Mail und Kalender. Wir vereinfachen Ihre Abläufe,
-                ohne bestehende Systeme zu ersetzen.
+                Wir arbeiten mit dem, was Sie schon nutzen – Bestandssystem, E-Mail
+                und Kalender. Wir vereinfachen Ihre Abläufe, ohne bestehende Systeme
+                zu ersetzen.
               </p>
               <div className="mt-5">
-                <TextLink href="/leistungen/crm-und-daten">Mehr erfahren</TextLink>
+                <TextLink href="/leistungen/digitale-agentur">Mehr erfahren</TextLink>
               </div>
               <IntegrationIllustration />
             </div>
@@ -162,7 +167,7 @@ function IntegrationSection() {
 /* ---------- Ablauf-Sektion ---------- */
 function ProcessSection() {
   return (
-    <section className="px-5 py-section-m md:py-section">
+    <section className="bg-sand-50 px-5 py-section-m md:py-section">
       <div className="mx-auto max-w-container">
         <Reveal>
           <Eyebrow icon="calendar">So arbeiten wir</Eyebrow>
@@ -191,31 +196,85 @@ function ProcessSection() {
   );
 }
 
+/* ---------- Use-Case-Teaser ----------
+   Konkreter Beweis (eine Kurzgeschichte je Paket) statt nur
+   abstrakter Kennzahlen – direkt vor der Stats-/Testimonial-Beweiskette. */
+const teaserSlugs = ['/leistungen/digitale-agentur', '/leistungen/kundenmagnet', '/leistungen/ki-assistenz'];
+
+function UseCaseTeaser() {
+  const featured = teaserSlugs
+    .map((href) => useCases.find((c) => c.serviceHref === href))
+    .filter(Boolean);
+
+  return (
+    <section className="bg-sand-50 px-5 py-section-m md:py-section">
+      <div className="mx-auto max-w-container">
+        <Reveal>
+          <Eyebrow icon="chart">Aus der Praxis</Eyebrow>
+          <h2 className="mt-3 max-w-2xl font-display text-display-lg text-sand-900">
+            Sehen Sie, wie andere Agenturen das lösen.
+          </h2>
+        </Reveal>
+        <div className="mt-12 grid gap-5 md:grid-cols-3">
+          {featured.map((c, i) => (
+            <Reveal key={c.title} delay={i * 90}>
+              <Link
+                href="/use-cases"
+                className="group flex h-full flex-col rounded-sm bg-sand-0 p-6 no-underline shadow-hairline transition-all duration-fast hover:-translate-y-1 hover:shadow-md md:p-8"
+              >
+                <p className="m-0 text-body-sm font-semibold uppercase tracking-widest text-forest-600">
+                  {c.branch}
+                </p>
+                <h3 className="mt-2 font-display text-h4 text-sand-900">{c.title}</h3>
+                <p className="mt-2 flex-1 text-sand-600">{c.problem}</p>
+                <p className="m-0 mt-5 flex items-start gap-2 font-display text-h4 font-medium text-forest-900">
+                  <Icon name="trend" size={20} className="mt-0.5 shrink-0 text-forest-600" />
+                  {c.gain.value}
+                </p>
+                <span className="mt-4 inline-flex items-center gap-1.5 text-body-sm font-semibold text-forest-700">
+                  Case ansehen
+                  <Icon name="arrow-right" size={15} className="transition-transform duration-fast group-hover:translate-x-1" />
+                </span>
+              </Link>
+            </Reveal>
+          ))}
+        </div>
+        <Reveal delay={200}>
+          <div className="mt-8">
+            <TextLink href="/use-cases">Alle Use Cases ansehen</TextLink>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
 export default function HomePage() {
   return (
     <>
       <HeroShowcase
         eyebrow="Beratung & Implementierung – keine Software von der Stange"
-        title={<>Weniger Verwaltung.<br />Mehr Abschlüsse.</>}
-        lead="Wir beraten Versicherungsmakler, Baufinanzierer und Immobilienprofis zu CRM, Automatisierung und Kundenkommunikation – und implementieren die passenden Systeme, bis Ihr Team damit arbeitet."
-        secondaryLabel="Leistungen ansehen"
+        title={'Das digitale Betriebssystem für Ihre Versicherungs­agentur.'}
+        lead="CRM, automatisierte Prozesse und Kundenkommunikation – in 90 Tagen eingerichtet, verbunden und in Ihrem Team geschult. Zum Festpreis."
+        secondaryLabel="Pakete ansehen"
         secondaryHref="/leistungen"
       />
       <LogoMarquee
         label="Herstellerunabhängig: Wir verkaufen keine Software, wir implementieren die passende – zum Beispiel"
         logos={tools}
       />
-      <AudienceSection />
       <PainSection />
-      <FeatureStepper title="Wir beraten, implementieren und schulen – in drei Leistungsbereichen." />
+      <AudienceSection />
+      <FeatureStepper title="Wir beraten, implementieren und schulen – in drei Paketen." />
       <ProcessSection />
       <IntegrationSection />
+      <UseCaseTeaser />
       <StatsSection
         title="Ergebnisse, die man im Kalender sieht."
         lead="Was unsere Kunden nach der Zusammenarbeit anders machen – gemessen, nicht geschätzt."
         stats={stats}
       />
-      <Testimonial {...testimonials[0]} />
+      <TestimonialsGrid testimonials={testimonials} tone="plain" />
       <FaqSection items={homeFaq} />
       <CtaBand />
     </>
