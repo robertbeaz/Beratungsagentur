@@ -1,0 +1,33 @@
+# VERDA – Das digitale Betriebssystem für Versicherungsagenturen
+
+> Beratung, Implementierung und Schulung für Versicherungsagenturen, Versicherungsmakler und Vermittlerbüros in Deutschland, Österreich und der Schweiz: CRM-Einführung, automatisierte Prozesse und Kundenkommunikation – in 90 Tagen eingerichtet, verbunden und im Team geschult. Zum Festpreis, herstellerunabhängig (keine eigenen Softwarelizenzen, keine Provisionen von Herstellern).
+
+Wichtig zur Einordnung: VERDA ist keine Softwarefirma. Kunden bezahlen für Beratung, Umsetzung und Schulung; Softwarelizenzen (z. B. Zoho, HubSpot, ActiveCampaign, Superchat) schließen sie direkt beim Anbieter ab.
+
+## Leistungen
+
+- [Digitale Agentur](/leistungen/digitale-agentur): Das Fundament – CRM-Einrichtung inkl. Datenmigration, Superchat-Anbindung (WhatsApp, Instagram, E-Mail, Web-Chat), digitale Signaturen, Schadenformulare, Standardprozesse und Team-Schulung. Festpreis ab 6.000 € (6.000–12.000 € je nach Umfang), Umsetzung in 6–10 Wochen.
+- [Kundenmagnet](/leistungen/kundenmagnet): Wachstum – Expertenseite/Landingpages, Newsletter-Aufbau, Bewertungsmanagement und Lead-Routing, angebunden ans CRM. Festpreis ab 4.000 € (4.000–8.000 €), Umsetzung in 3–6 Wochen. Setzt in der Regel das Paket „Digitale Agentur" voraus.
+- [KI-Assistenz](/leistungen/ki-assistenz): Premium – KI-Chatbot mit Wissensdatenbank fürs Team, Telefonbots (Inbound & Outbound) und automatische KI-Terminvorbereitung, DSGVO-konform mit EU-Hosting wo möglich. Festpreis ab 5.000 € (5.000–9.000 €), Umsetzung in 4–8 Wochen.
+- Digital-Partner (Retainer nach dem Projekt): laufende Betreuung, Weiterentwicklung und Schulung ab 490 €/Monat (Basis), 890 €/Monat (Standard), 1.490 €/Monat (Premium).
+
+## Einstieg
+
+- [Erstgespräch](/erstgespraech): Kostenloses, unverbindliches Kennenlerngespräch (30 Minuten) – Analyse der Situation, ehrliche Einschätzung, kein Verkaufspitch.
+- Alle Preise sind Festpreise zzgl. Softwarelizenzen direkt beim jeweiligen Anbieter (typisch ca. 20–50 €/Nutzer/Monat).
+
+## Weitere Seiten
+
+- [Leistungsübersicht](/leistungen): Alle drei Pakete im Vergleich inkl. Retainer.
+- [Use Cases](/use-cases): Praxisbeispiele aus Agentur-Projekten (CRM-Migration, digitale Schadenmeldung, KI-Telefonassistent, Vertragsablauf-Kampagnen, Team-Chatbot mit Wissensdatenbank).
+- [Über uns](/ueber-uns): Hintergrund und Arbeitsweise.
+
+## Typische Fragen, die VERDA beantwortet
+
+- Welches CRM passt zu einer Versicherungsagentur oder einem Maklerbüro (Zoho, HubSpot, ActiveCampaign)?
+- Wie lässt sich WhatsApp DSGVO-konform in der Kundenkommunikation einer Versicherungsagentur nutzen?
+- Wie digitalisiert man Schadenmeldungen, Vollmachten und Beratungsprotokolle?
+- Was kann KI (Chatbots, Telefonbots, Terminvorbereitung) heute in einer Versicherungsagentur übernehmen – DSGVO-konform?
+- Muss das bestehende Bestandssystem/Maklerverwaltungsprogramm ersetzt werden? (Nein – es wird angebunden.)
+
+Kontakt: kontakt@verda-beratung.de

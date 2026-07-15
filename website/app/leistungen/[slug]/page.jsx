@@ -3,6 +3,7 @@ import { PageHeader, CtaBand, FaqSection, Reveal } from '../../../components/sec
 import { Icon, KiBadge, Eyebrow, Card, ButtonLink } from '../../../components/primitives';
 import { DashboardMockup, FlowIllustration, PhoneChatMockup } from '../../../components/illustrations';
 import { FeatureBento } from '../../../components/feature-bento';
+import { JsonLd, faqJsonLd, serviceJsonLd } from '../../../components/schema';
 import { services, useCases } from '../../../components/site';
 
 const serviceMedia = {
@@ -19,9 +20,11 @@ export async function generateMetadata({ params }) {
   const { slug } = await params;
   const service = services.find((s) => s.slug === slug);
   if (!service) return {};
+  /* Suchgetriebene Metadaten aus service.seo; Fallback auf Markentexte. */
   return {
-    title: `${service.eyebrow} – ${service.title}`,
-    description: service.teaser,
+    title: service.seo?.title ?? `${service.eyebrow} – ${service.title}`,
+    description: service.seo?.description ?? service.teaser,
+    alternates: { canonical: `/leistungen/${service.slug}` },
   };
 }
 
@@ -33,6 +36,8 @@ export default async function ServicePage({ params }) {
 
   return (
     <>
+      <JsonLd data={serviceJsonLd(service)} />
+      <JsonLd data={faqJsonLd(service.faq)} />
       <PageHeader
         eyebrow={service.eyebrow}
         eyebrowIcon={service.icon}

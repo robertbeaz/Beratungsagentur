@@ -4,6 +4,7 @@ import {
 } from '../components/sections';
 import { Icon, Eyebrow, TextLink } from '../components/primitives';
 import { IntegrationIllustration } from '../components/illustrations';
+import { JsonLd, faqJsonLd } from '../components/schema';
 import { processSteps, stats, testimonials, homeFaq, tools, audiences, useCases } from '../components/site';
 
 export const metadata = {
@@ -252,6 +253,7 @@ function UseCaseTeaser() {
 export default function HomePage() {
   return (
     <>
+      <JsonLd data={faqJsonLd(homeFaq)} />
       <HeroShowcase
         eyebrow="Beratung & Implementierung – keine Software von der Stange"
         title={'Das digitale Betriebssystem für Ihre Versicherungs­agentur.'}

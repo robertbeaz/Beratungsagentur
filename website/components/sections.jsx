@@ -7,7 +7,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { ButtonLink, Icon, Eyebrow, StatCard, KiBadge, Accordion } from './primitives';
-import { HeroWidgets, HeroIconTiles, DashboardMockup, FlowIllustration, PhoneChatMockup } from './illustrations';
+import { HeroWidgets, HeroIconTiles, TabletDashboard, DashboardMockup, FlowIllustration, PhoneChatMockup } from './illustrations';
 import { site, navLinks, services } from './site';
 
 /* ---------- Scroll-Reveal (700ms, ease-out, IntersectionObserver) ---------- */
@@ -212,8 +212,12 @@ export function Hero({ title, lead, secondaryLabel, secondaryHref, media }) {
 /* ---------- Hero-Showcase (Startseite, verteilte Prozess-Widgets) ---------- */
 export function HeroShowcase({ eyebrow, title, lead, secondaryLabel, secondaryHref }) {
   return (
-    <section className="relative overflow-hidden bg-forest-100 px-5 pb-14 pt-8 md:pb-24 md:pt-10 xl:min-h-[max(620px,calc(100dvh-232px))] xl:pb-24">
-      {/* Schwebende Widgets über die gesamte Hero-Fläche (ab xl) */}
+    <section className="relative overflow-hidden bg-forest-100 px-5 pb-14 pt-8 md:pt-10 xl:min-h-[710px] xl:pb-24 2xl:min-h-[740px]">
+      {/* Schwebende Widgets über die gesamte Hero-Fläche (ab xl).
+         Feste min-Höhe statt 100dvh: Die prozentual positionierten Karten
+         und Pfeile behalten so bei jedem Seitenverhältnis ihre Anordnung.
+         Die Höhe muss Textspalte (~585px) + sichtbare Tablet-Kante + Abstand
+         fassen, sonst verdeckt das Tablet die „Kostenlos“-Zeile. */}
       <div className="animate-fade-in [animation-delay:400ms]">
         <HeroWidgets />
       </div>
@@ -241,9 +245,15 @@ export function HeroShowcase({ eyebrow, title, lead, secondaryLabel, secondaryHr
         <p className="mt-2 animate-fade-up text-body-sm text-sand-500 [animation-delay:360ms]">
           Kostenlos & unverbindlich · 30 Minuten · per Video oder Telefon
         </p>
-        {/* Unterhalb von xl: kompakte Icon-Kacheln statt der Widgets */}
-        <div className="mt-9 animate-fade-up [animation-delay:480ms] xl:hidden">
+        {/* Mobil (<sm): kompakte Icon-Kacheln statt der Widgets */}
+        <div className="mt-9 animate-fade-up [animation-delay:480ms] sm:hidden">
           <HeroIconTiles />
+        </div>
+        {/* Tablet/Laptop (sm bis <xl): CRM-Tablet, am Hero-Rand angeschnitten.
+           Das Fenster hat eine feste Höhe und hebt mit -mb-14 das Section-Padding
+           auf – die Schnittkante liegt dadurch exakt auf der Hero-Unterkante. */}
+        <div className="mx-auto -mb-14 mt-12 hidden h-[220px] max-w-xl animate-fade-up overflow-hidden [animation-delay:480ms] sm:block md:h-[280px] md:max-w-2xl xl:hidden">
+          <TabletDashboard />
         </div>
       </div>
     </section>
@@ -347,7 +357,10 @@ export function PageHeader({ eyebrow, eyebrowIcon, title, lead, dark = false, me
 
 /* ---------- Logo-Marquee ---------- */
 export function LogoMarquee({ label = 'Wir arbeiten mit den Tools, die Sie brauchen', logos = [] }) {
-  const row = [...logos, ...logos];
+  /* Die Marquee-Animation läuft bis -50 % – die halbe Laufbreite ist also die
+     Loop-Distanz und muss breiter sein als der Viewport, sonst läuft rechts
+     Leere mit. 6 Wiederholungen decken auch Ultrawide-Monitore (~3400px) ab. */
+  const row = [...Array(6)].flatMap(() => logos);
   return (
     <section className="overflow-hidden pb-10 pt-8">
       <p className="mb-6 text-center text-body-lg text-sand-500">{label}</p>
@@ -495,6 +508,7 @@ const footerColumns = [
     title: 'Unternehmen',
     links: [
       { label: 'Use Cases', href: '/use-cases' },
+      { label: 'Wissen', href: '/wissen' },
       { label: 'Über uns', href: '/ueber-uns' },
       { label: 'Erstgespräch', href: '/erstgespraech' },
     ],

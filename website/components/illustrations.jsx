@@ -318,6 +318,9 @@ function FlowArrow({ className = '', viewBox, d, tip }) {
 export function HeroWidgets() {
   return (
     <div aria-hidden="true" className="pointer-events-none absolute inset-0 hidden xl:block">
+      {/* Bühne: zentriert und auf 1440px begrenzt, damit die prozentualen
+         Positionen auf Ultrawide-Monitoren nicht auseinanderdriften. */}
+      <div className="absolute inset-y-0 left-1/2 w-full max-w-[1440px] -translate-x-1/2">
       {/* CRM-Tablet unten mittig, am Hero-Rand angeschnitten */}
       <div className="absolute bottom-0 left-1/2 w-[600px] -translate-x-1/2 translate-y-[58%]">
         <TabletDashboard />
@@ -383,8 +386,9 @@ export function HeroWidgets() {
         <Icon name="star" size={24} fill="currentColor" />
       </FloatTile>
 
-      {/* Chat – oben links */}
-      <FloatCard rot={-5} className="left-[3.5%] top-14 w-56 2xl:left-[5%]">
+      {/* Chat – oben links (bei xl schmaler + weiter außen, sonst
+         kollidiert die Karte mit der zentrierten Headline) */}
+      <FloatCard rot={-5} className="left-[2%] top-14 w-52 2xl:left-[5%] 2xl:w-56">
         <div className="space-y-1.5">
           <div className="max-w-[88%] rounded-sm rounded-bl-xs bg-sand-50 px-2.5 py-1.5 text-[0.75rem] leading-snug text-sand-800">
             Ich möchte einen Schaden melden.
@@ -431,8 +435,9 @@ export function HeroWidgets() {
         </div>
       </FloatCard>
 
-      {/* Terminbuchung – Mitte rechts, unterhalb der Pipeline */}
-      <FloatCard rot={-4} className="right-[4%] top-[52%] w-52">
+      {/* Terminbuchung – Mitte rechts, unterhalb der Pipeline
+         (bei xl tiefer, damit sie der dritten Headline-Zeile ausweicht) */}
+      <FloatCard rot={-4} className="right-[4%] top-[57%] w-52 2xl:top-[52%]">
         <p className="m-0 mb-2 text-[0.625rem] font-semibold uppercase tracking-widest text-sand-400">
           Terminbuchung
         </p>
@@ -447,8 +452,8 @@ export function HeroWidgets() {
         </div>
       </FloatCard>
 
-      {/* CRM-Pipeline – oben rechts */}
-      <FloatCard rot={3} className="right-[2%] top-[18%] w-56 2xl:right-[4%]">
+      {/* CRM-Pipeline – oben rechts (bei xl schmaler, s. Chat-Karte) */}
+      <FloatCard rot={3} className="right-[1.5%] top-[18%] w-52 2xl:right-[4%] 2xl:w-56">
         <div className="mb-2 flex items-center justify-between">
           <p className="m-0 text-[0.625rem] font-semibold uppercase tracking-widest text-sand-400">CRM-Pipeline</p>
           <span className="rounded-xs bg-signal-300 px-1.5 py-0.5 font-data text-[0.625rem] font-medium text-sand-950">
@@ -482,6 +487,7 @@ export function HeroWidgets() {
         </div>
         <p className="m-0 mt-2 text-[0.6875rem] text-sand-500">Prozess läuft automatisch</p>
       </FloatCard>
+      </div>
     </div>
   );
 }

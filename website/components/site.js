@@ -7,6 +7,7 @@
 export const site = {
   name: 'VERDA', // TODO: Finaler Agenturname (Rebranding: nur hier + Impressum/Datenschutz ändern)
   claim: 'Digitale Prozesse für Versicherungsagenturen',
+  url: 'https://verda-beratung.de', // TODO: echte Domain (wird für JSON-LD/Canonical genutzt)
   // TODO: Eigenen Cal.com-Link eintragen (z. B. https://cal.com/ihr-name/erstgespraech)
   calUrl: 'https://cal.com/verda/erstgespraech',
   email: 'kontakt@verda-beratung.de', // TODO: echte E-Mail-Adresse
@@ -15,6 +16,7 @@ export const site = {
 
 export const navLinks = [
   { label: 'Leistungen', href: '/leistungen' },
+  { label: 'Wissen', href: '/wissen' },
   { label: 'Über uns', href: '/ueber-uns' },
 ];
 
@@ -59,6 +61,13 @@ export const services = [
     icon: 'chart',
     sub: 'CRM · Superchat · Signaturen · Formulare',
     eyebrow: 'Digitale Agentur',
+    /* Suchgetriebener Title/Description (statt Markenclaim) – Haupt-Keyword:
+       „CRM-Einführung Versicherungsagentur/-makler“. */
+    seo: {
+      title: 'CRM-Einführung für Versicherungsagenturen & Makler',
+      description:
+        'CRM, Superchat-Anbindung, digitale Signaturen und Schadenformulare – in 90 Tagen eingerichtet und im Team geschult. Festpreis ab 6.000 €.',
+    },
     title: 'Das Fundament: Ihre Agentur, digital aufgestellt',
     teaser:
       'In 90 Tagen arbeitet Ihre Agentur digital – ohne Zettelwirtschaft, ohne verlorene Anfragen. CRM-Einrichtung, Superchat-Anbindung, digitale Signaturen, Schadenformulare und Standardprozesse, eingerichtet und Ihrem Team übergeben.',
@@ -175,6 +184,12 @@ export const services = [
     icon: 'trend',
     sub: 'Landingpages · Newsletter · Bewertungen · Lead-Routing',
     eyebrow: 'Kundenmagnet',
+    /* Haupt-Keyword: „Leadgenerierung Versicherungsmakler“. */
+    seo: {
+      title: 'Leadgenerierung für Versicherungsmakler & Agenturen',
+      description:
+        'Anfragen, die automatisch im CRM landen: Expertenseite, Newsletter, Bewertungsmanagement und Lead-Routing. Festpreis ab 4.000 €.',
+    },
     title: 'Wachstum: Anfragen, die von selbst kommen',
     teaser:
       'Anfragen, die automatisch in Ihrem CRM landen – statt im Nirgendwo. Expertenseite, Newsletter, Bewertungsmanagement und Lead-Routing, aufeinander abgestimmt und mit Ihrem CRM verbunden.',
@@ -257,6 +272,12 @@ export const services = [
     icon: 'settings',
     sub: 'KI-Chatbot · Telefonbots · Terminvorbereitung',
     eyebrow: 'KI-Assistenz',
+    /* Haupt-Keyword: „KI für Versicherungsmakler/-agenturen“. */
+    seo: {
+      title: 'KI für Versicherungsagenturen: Chatbot & Telefonbot',
+      description:
+        'KI-Chatbot mit Wissensdatenbank, Telefonbots und automatische Terminvorbereitung – DSGVO-konform eingerichtet. Festpreis ab 5.000 €.',
+    },
     title: 'Premium: Ihr Team antwortet in Sekunden',
     teaser:
       'Ihr Team beantwortet Fragen in Sekunden statt Minuten. KI-Chatbot mit Wissensdatenbank, Telefonbots und automatische Terminvorbereitung – DSGVO-konform eingerichtet und an Ihre Systeme angebunden.',
