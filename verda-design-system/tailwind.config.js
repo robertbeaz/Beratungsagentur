@@ -52,9 +52,11 @@ module.exports = {
       },
 
       fontFamily: {
-        display: ['Schibsted Grotesk', 'Helvetica Neue', 'Arial', 'sans-serif'],
-        body: ['Hanken Grotesk', 'Helvetica Neue', 'Arial', 'sans-serif'],
-        data: ['IBM Plex Mono', 'ui-monospace', 'monospace'],
+        // Font-Namen kommen aus den Tokens (tokens.css / styleguide.html) bzw.
+        // im Website-Projekt aus next/font – beide setzen dieselben CSS-Variablen.
+        display: ['var(--font-display)', 'Helvetica Neue', 'Arial', 'sans-serif'],
+        body: ['var(--font-body)', 'Helvetica Neue', 'Arial', 'sans-serif'],
+        data: ['var(--font-data)', 'ui-monospace', 'monospace'],
       },
 
       fontSize: {
