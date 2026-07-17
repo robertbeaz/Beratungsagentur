@@ -6,7 +6,7 @@
    ============================================================ */
 import Link from 'next/link';
 import { Icon, Eyebrow, Badge, Card, ButtonLink } from './primitives';
-import { formatDate } from '../content/artikel';
+import { formatDate, getArticle } from '../content/artikel';
 
 function slugify(text) {
   return text
@@ -136,6 +136,25 @@ export function ArticleBody({ article }) {
           {article.blocks.map((block, i) => (
             <Block key={i} block={block} />
           ))}
+          {article.relatedArticles?.length > 0 && (
+            <div className="mt-12 rounded-md bg-sand-50 p-6 shadow-hairline md:p-8">
+              <p className="m-0 text-body-sm font-semibold uppercase tracking-widest text-forest-600">
+                Weiterlesen
+              </p>
+              <ul className="m-0 mt-4 list-none space-y-3 p-0">
+                {article.relatedArticles.map(getArticle).filter(Boolean).map((rel) => (
+                  <li key={rel.slug}>
+                    <Link
+                      href={`/wissen/${rel.slug}`}
+                      className="font-semibold text-sand-900 no-underline transition-colors duration-fast hover:text-forest-700"
+                    >
+                      {rel.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
           {article.sources?.length > 0 && (
             <div className="mt-12 border-t border-sand-200 pt-6">
               <p className="m-0 text-body-sm font-semibold uppercase tracking-widest text-sand-500">Quellen</p>

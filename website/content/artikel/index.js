@@ -6,10 +6,12 @@
    ============================================================ */
 import { article as vorlage } from './vorlage-artikelaufbau';
 import { article as whatsappDsgvo } from './whatsapp-dsgvo-versicherungsmakler';
+import { article as crmVergleich } from './crm-versicherungsmakler-vergleich';
 
 const alleArtikel = [
   vorlage,
   whatsappDsgvo,
+  crmVergleich,
 ];
 
 /* Lesezeit aus dem tatsächlichen Textumfang (~200 Wörter/Minute). */

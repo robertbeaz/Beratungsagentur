@@ -34,6 +34,8 @@ export const article = {
   serviceHref: '/leistungen/digitale-agentur',
   serviceLabel: 'Digitale Agentur – inkl. rechtssicherer WhatsApp-Anbindung',
 
+  relatedArticles: ['crm-versicherungsmakler-vergleich'],
+
   blocks: [
     {
       type: 'p',
