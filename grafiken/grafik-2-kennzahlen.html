@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>VERDA Grafik – Kennzahlen im Blick (1200×1350)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest-100: #E5EED4; --forest-500: #64925C; --forest-600: #4B7345; --forest-700: #3A5936;
+    --amber-500: #C77E1D;
+    --sand-0: #FFF; --sand-50: #F8F8F4; --sand-100: #EEEEE5; --sand-200: #DCDCD2;
+    --sand-400: #AEB0A6; --sand-500: #8B8E83; --sand-600: #5F625A; --sand-900: #262821;
+    --display: 'Schibsted Grotesk', sans-serif;
+    --body: 'Hanken Grotesk', sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: transparent; font-family: var(--body); }
+
+  /* ================= CANVAS 1200 × 1350 ================= */
+  .canvas {
+    width: 1200px; height: 1350px; position: relative;
+    border-radius: 48px; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .bg {
+    position: absolute; inset: -60px;
+    background: url('assets/bg-forest.jpg') center top / cover no-repeat;
+    filter: blur(42px) saturate(1.05) brightness(1.12);
+    transform: scale(1.12);
+  }
+  .veil { position: absolute; inset: 0; background: rgba(23, 25, 19, 0.12); }
+
+  .grid {
+    position: relative; width: 1000px;
+    display: flex; flex-direction: column; gap: 28px;
+  }
+  .row { display: flex; gap: 28px; }
+  .card {
+    background: var(--sand-0); border-radius: 28px; padding: 48px;
+    box-shadow: 0 24px 64px rgba(23, 25, 19, 0.18);
+  }
+  .stat { flex: 1; }
+  .stat .label {
+    font-size: 28px; font-weight: 500; color: var(--sand-600);
+  }
+  .stat .value {
+    margin-top: 18px; font-family: var(--mono); font-weight: 600;
+    font-size: 76px; letter-spacing: -0.03em; color: var(--sand-900);
+  }
+  .trend {
+    margin-top: 18px; display: flex; align-items: center; gap: 12px;
+    font-size: 26px; color: var(--sand-500);
+  }
+  .trend strong { font-weight: 600; }
+  .trend.up strong { color: var(--forest-600); }
+  .trend.down strong { color: var(--amber-500); }
+  .trend svg { width: 34px; height: 34px; }
+  .trend.up svg { color: var(--forest-600); }
+  .trend.down svg { color: var(--amber-500); }
+
+  .chart h2 {
+    font-family: var(--display); font-weight: 600; font-size: 40px;
+    letter-spacing: -0.01em; color: var(--sand-900);
+  }
+  .chart .sub { margin-top: 10px; font-size: 27px; color: var(--sand-600); }
+  .legend { margin-top: 34px; display: flex; gap: 40px; }
+  .legend span {
+    display: flex; align-items: center; gap: 14px;
+    font-size: 26px; font-weight: 500; color: var(--sand-600);
+  }
+  .dot { width: 18px; height: 18px; border-radius: 50%; }
+  .plot { margin-top: 24px; }
+  .plot text { font-family: var(--mono); font-size: 23px; fill: var(--sand-400); }
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="bg"></div>
+  <div class="veil"></div>
+  <div class="grid">
+
+    <div class="row">
+      <div class="card stat">
+        <div class="label">Neue Anfragen</div>
+        <div class="value">214</div>
+        <div class="trend up">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15l6-6 4 4 7-7"/><path d="M14 6h6v6"/></svg>
+          <strong>+23&thinsp;%</strong>&nbsp;ggü. Vormonat
+        </div>
+      </div>
+      <div class="card stat">
+        <div class="label">Ø Antwortzeit</div>
+        <div class="value">4&thinsp;Min</div>
+        <div class="trend down">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l6 6 4-4 7 7"/><path d="M14 18h6v-6"/></svg>
+          <strong>−82&thinsp;%</strong>&nbsp;seit Automatisierung
+        </div>
+      </div>
+    </div>
+
+    <div class="card chart">
+      <h2>Anfragen vs. Abschlüsse</h2>
+      <div class="sub">Monatliche Entwicklung der letzten 12 Monate</div>
+      <div class="legend">
+        <span><i class="dot" style="background:#4B7345"></i>Anfragen</span>
+        <span><i class="dot" style="background:#C77E1D"></i>Abschlüsse</span>
+      </div>
+      <svg class="plot" viewBox="0 0 904 380" width="904" height="380">
+        <!-- Gitterlinien -->
+        <line x1="90" y1="40"  x2="904" y2="40"  stroke="#EEEEE5" stroke-width="2"/>
+        <line x1="90" y1="170" x2="904" y2="170" stroke="#EEEEE5" stroke-width="2"/>
+        <line x1="90" y1="300" x2="904" y2="300" stroke="#EEEEE5" stroke-width="2"/>
+        <text x="0" y="48">200</text>
+        <text x="0" y="178">100</text>
+        <text x="26" y="308">0</text>
+        <!-- Anfragen (Forest) -->
+        <path d="M90 236 C 190 228, 250 214, 350 196 S 560 156, 660 132 S 850 84, 904 74"
+              fill="none" stroke="#4B7345" stroke-width="7" stroke-linecap="round"/>
+        <!-- Abschlüsse (Amber) -->
+        <path d="M90 288 C 190 284, 250 276, 350 266 S 560 240, 660 224 S 850 194, 904 186"
+              fill="none" stroke="#C77E1D" stroke-width="7" stroke-linecap="round"/>
+      </svg>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

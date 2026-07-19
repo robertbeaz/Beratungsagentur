@@ -88,8 +88,8 @@ module.exports = {
         30: '7.5rem',
         'nav': '72px',
         'nav-m': '56px',
-        'section': '96px',
-        'section-m': '64px',
+        'section': '120px',
+        'section-m': '80px',
       },
 
       maxWidth: {

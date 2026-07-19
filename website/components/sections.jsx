@@ -7,7 +7,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { ButtonLink, Icon, Eyebrow, StatCard, KiBadge, Accordion } from './primitives';
-import { HeroWidgets, HeroIconTiles, TabletDashboard, DashboardMockup, FlowIllustration, PhoneChatMockup } from './illustrations';
+import { HeroBeforeAfter } from './illustrations';
+import { DocumentScene, MetricsScene, InboxScene } from './feature-scenes';
 import { site, navLinks, services } from './site';
 
 /* ---------- Scroll-Reveal (700ms, ease-out, IntersectionObserver) ---------- */
@@ -209,62 +210,55 @@ export function Hero({ title, lead, secondaryLabel, secondaryHref, media }) {
   );
 }
 
-/* ---------- Hero-Showcase (Startseite, verteilte Prozess-Widgets) ---------- */
+/* ---------- Hero-Showcase (Startseite) ----------
+   Ruhiger Zweispalter: Text linksbündig, rechts ein einziges
+   Vorher/Nachher-Bild als Motiv – keine Widgets, keine Deko. */
 export function HeroShowcase({ eyebrow, title, lead, secondaryLabel, secondaryHref }) {
+  /* Mindesthöhe = Viewport minus Navbar minus Logo-Banner darunter,
+     damit Hero UND Banner zusammen ohne Scrollen sichtbar sind
+     (Banner-Höhe: ~207px mobil, ~150px ab md – siehe LogoMarquee). */
   return (
-    <section className="relative overflow-hidden bg-forest-100 px-5 pb-14 pt-8 md:pt-10 xl:min-h-[710px] xl:pb-24 2xl:min-h-[740px]">
-      {/* Schwebende Widgets über die gesamte Hero-Fläche (ab xl).
-         Feste min-Höhe statt 100dvh: Die prozentual positionierten Karten
-         und Pfeile behalten so bei jedem Seitenverhältnis ihre Anordnung.
-         Die Höhe muss Textspalte (~585px) + sichtbare Tablet-Kante + Abstand
-         fassen, sonst verdeckt das Tablet die „Kostenlos“-Zeile. */}
-      <div className="animate-fade-in [animation-delay:400ms]">
-        <HeroWidgets />
-      </div>
-
-      <div className="relative mx-auto max-w-container text-center">
-        {eyebrow && (
-          <p className="m-0 mb-3 hidden animate-fade-up sm:block">
-            <span className="inline-flex items-center gap-2 rounded-pill bg-sand-0/70 px-4 py-1.5 text-body-sm font-semibold text-forest-800 shadow-hairline">
-              {eyebrow}
-            </span>
-          </p>
-        )}
-        <h1 className="mx-auto max-w-3xl animate-fade-up font-display text-display-xl text-forest-950">
-          {title}
-        </h1>
-        <p className="mx-auto mt-3 max-w-2xl animate-fade-up text-body-lg text-sand-600 [animation-delay:120ms]">
-          {lead}
-        </p>
-        <div className="mt-5 flex animate-fade-up flex-wrap items-center justify-center gap-4 [animation-delay:240ms]">
-          <ButtonLink href="/erstgespraech" size="lg">{site.cta}</ButtonLink>
-          {secondaryLabel && (
-            <ButtonLink href={secondaryHref} size="lg" variant="secondary">{secondaryLabel}</ButtonLink>
+    <section className="flex min-h-[calc(100dvh-263px)] items-center overflow-hidden bg-forest-100 px-5 py-10 md:min-h-[calc(100dvh-222px)] md:py-16">
+      <div className="mx-auto grid w-full max-w-container items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+        <div>
+          {eyebrow && (
+            <p className="m-0 mb-4 animate-fade-up">
+              <span className="inline-flex items-center gap-2 rounded-pill bg-sand-0/70 px-4 py-1.5 text-body-sm font-semibold text-forest-800 shadow-hairline">
+                {eyebrow}
+              </span>
+            </p>
           )}
+          <h1 className="animate-fade-up font-display text-display-lg text-forest-950">
+            {title}
+          </h1>
+          <p className="mt-4 max-w-xl animate-fade-up text-body-lg text-sand-600 [animation-delay:120ms]">
+            {lead}
+          </p>
+          <div className="mt-6 flex animate-fade-up flex-wrap items-center gap-4 [animation-delay:240ms]">
+            <ButtonLink href="/erstgespraech" size="lg">{site.cta}</ButtonLink>
+            {secondaryLabel && (
+              <ButtonLink href={secondaryHref} size="lg" variant="secondary">{secondaryLabel}</ButtonLink>
+            )}
+          </div>
+          <p className="mt-3 animate-fade-up text-body-sm text-sand-500 [animation-delay:360ms]">
+            Kostenlos & unverbindlich · 30 Minuten · per Video oder Telefon
+          </p>
         </div>
-        <p className="mt-2 animate-fade-up text-body-sm text-sand-500 [animation-delay:360ms]">
-          Kostenlos & unverbindlich · 30 Minuten · per Video oder Telefon
-        </p>
-        {/* Mobil (<sm): kompakte Icon-Kacheln statt der Widgets */}
-        <div className="mt-9 animate-fade-up [animation-delay:480ms] sm:hidden">
-          <HeroIconTiles />
-        </div>
-        {/* Tablet/Laptop (sm bis <xl): CRM-Tablet, am Hero-Rand angeschnitten.
-           Das Fenster hat eine feste Höhe und hebt mit -mb-14 das Section-Padding
-           auf – die Schnittkante liegt dadurch exakt auf der Hero-Unterkante. */}
-        <div className="mx-auto -mb-14 mt-12 hidden h-[220px] max-w-xl animate-fade-up overflow-hidden [animation-delay:480ms] sm:block md:h-[280px] md:max-w-2xl xl:hidden">
-          <TabletDashboard />
+        <div className="animate-fade-up [animation-delay:240ms]">
+          <HeroBeforeAfter />
         </div>
       </div>
     </section>
   );
 }
 
-/* ---------- Feature-Stepper (Leistungen im Wechsel, Nelly-Muster) ---------- */
+/* ---------- Feature-Stepper (Leistungen im Wechsel, Nelly-Muster) ----------
+   Media: Live-JSX-Szenen im „Karten auf geblurrtem Foto"-Stil
+   (siehe components/feature-scenes.jsx bzw. grafiken/ im Repo-Root). */
 const stepperMedia = {
-  'digitale-agentur': <DashboardMockup />,
-  'ki-assistenz': <FlowIllustration />,
-  'kundenmagnet': <PhoneChatMockup />,
+  'digitale-agentur': <DocumentScene />,
+  'kundenmagnet': <MetricsScene />,
+  'ki-assistenz': <InboxScene />,
 };
 
 export function FeatureStepper({ title = 'Drei Bausteine für einen Betrieb, der von selbst läuft.' }) {
@@ -272,12 +266,12 @@ export function FeatureStepper({ title = 'Drei Bausteine für einen Betrieb, der
   const next = () => setActive((active + 1) % services.length);
 
   return (
-    <section id="leistungen" className="px-5 py-section-m md:py-section">
+    <section id="leistungen" className="bg-sand-50 px-5 py-section-m md:py-section">
       <div className="mx-auto max-w-container">
         <Reveal>
           <h2 className="mx-auto max-w-2xl text-center font-display text-display-lg text-sand-900">{title}</h2>
         </Reveal>
-        <div className="mt-14 grid gap-10 lg:grid-cols-[1fr_1.15fr] lg:items-center lg:gap-16">
+        <div className="mt-16 grid gap-10 lg:grid-cols-[1fr_1.15fr] lg:items-center lg:gap-16 md:mt-20">
           {/* Linke Spalte: Kategorien mit aktivem Eintrag */}
           <div>
             {services.map((s, i) =>
@@ -314,18 +308,16 @@ export function FeatureStepper({ title = 'Drei Bausteine für einen Betrieb, der
                 <button
                   key={s.slug}
                   onClick={() => setActive(i)}
-                  className="block w-full border-t border-sand-200 py-5 text-left font-display text-h4 font-medium text-sand-400 transition-colors duration-fast first:border-t-0 hover:text-sand-700"
+                  className="block w-full border-t border-sand-200 py-5 text-left font-display text-h4 font-medium text-sand-400 transition-all duration-fast first:border-t-0 hover:translate-x-1 hover:text-sand-700"
                 >
                   {s.eyebrow}
                 </button>
               )
             )}
           </div>
-          {/* Rechte Spalte: Illustration der aktiven Leistung */}
-          <div className="rounded-md bg-sand-50 p-6 sm:p-10 md:p-14">
-            <div key={services[active].slug} className="animate-fade-in">
-              {stepperMedia[services[active].slug]}
-            </div>
+          {/* Rechte Spalte: Szene der aktiven Leistung (bringt eigenen Hintergrund mit) */}
+          <div key={services[active].slug} className="animate-scale-in">
+            {stepperMedia[services[active].slug]}
           </div>
         </div>
       </div>
@@ -363,8 +355,8 @@ export function LogoMarquee({ label = 'Wir arbeiten mit den Tools, die Sie brauc
   const row = [...Array(6)].flatMap(() => logos);
   return (
     <section className="overflow-hidden pb-10 pt-8">
-      <p className="mb-6 text-center text-body-lg text-sand-500">{label}</p>
-      <div className="flex w-max animate-marquee gap-20 hover:[animation-play-state:paused]" aria-hidden="true">
+      <p className="mb-5 text-center text-body-lg text-sand-500">{label}</p>
+      <div className="fade-x-edges flex w-max animate-marquee gap-20 hover:[animation-play-state:paused]" aria-hidden="true">
         {row.map((logo, i) => (
           <span key={i} className="whitespace-nowrap font-display text-h3 font-medium text-sand-400">
             {logo}
@@ -385,7 +377,7 @@ export function StatsSection({ title, lead, stats = [], note }) {
           <h2 className="max-w-xl font-display text-display-lg text-forest-950">{title}</h2>
           {lead && <p className="mt-4 max-w-xl text-body-lg text-sand-600">{lead}</p>}
         </Reveal>
-        <div className="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           {stats.map((s, i) => (
             <Reveal key={s.label} delay={i * 90}>
               <StatCard value={s.value} label={s.label} />
@@ -454,7 +446,7 @@ export function TestimonialsGrid({ title = 'Was Kunden nach der Zusammenarbeit s
         <Reveal>
           <h2 className={`max-w-xl font-display text-display-lg ${tone === 'sage' ? 'text-forest-950' : 'text-sand-900'}`}>{title}</h2>
         </Reveal>
-        <div className="mt-12 grid gap-5 md:grid-cols-3">
+        <div className="mt-14 grid gap-5 md:grid-cols-3">
           {testimonials.map((t, i) => (
             <Reveal key={t.name} delay={i * 90}>
               <figure className={`m-0 flex h-full flex-col rounded-sm p-6 md:p-8 ${tone === 'sage' ? 'bg-sand-0' : 'bg-sand-0 shadow-hairline'}`}>

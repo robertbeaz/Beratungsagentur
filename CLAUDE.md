@@ -11,6 +11,7 @@ Beratungsagentur/
 ├── website/                 → Next.js 15 App (die Live-Website, via Vercel deployed)
 ├── verda-design-system/     → Design System (Tokens, React-Primitives, Styleguide)
 ├── werbeanzeigen/           → Werbeanzeigen-Creatives (statisches HTML)
+├── grafiken/                → Website-Feature-Grafiken (HTML-Quellen + PNG-Exports, noch nicht eingebunden)
 ├── referenzen/              → Referenz-/Inspirations-Screenshots
 └── CLAUDE.md                → diese Datei
 ```
@@ -46,7 +47,8 @@ Signal-Lime nur für KI-/Neu-Kennzeichnung. `website/` hat eine eigene, angepass
 
 ## Konventionen
 
-- **Sprache:** Deutsch, Sie-Form. Keine Preise auf der Website. Agentur (nicht Person) im Vordergrund.
+- **Sprache:** Deutsch, Sie-Form. Agentur (nicht Person) im Vordergrund. Preise sind gewollt
+  (Festpreis-Teaser „ab X €" je Paket, Retainer-Tiers) und liegen zentral in `site.js`.
 - **Inhalte:** Testimonials, Zahlen und Cases sind markierte Platzhalter (TODO in `site.js`);
   echte Kundenstimmen/Ergebnisse werden nachgeliefert. Impressum/Datenschutz sind ungeprüfte Vorlagen.
 - **Tools der Agentur:** Zoho, HubSpot, ActiveCampaign, Superchat, Make/Zapier, Claude.

@@ -32,6 +32,10 @@ const paths = {
   settings: 'M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm8-3a8 8 0 0 1-.2 1.8l2 1.5-2 3.4-2.3-.9a8 8 0 0 1-3 1.8L14 22h-4l-.4-2.4a8 8 0 0 1-3-1.8l-2.4.9-2-3.4 2-1.5A8 8 0 0 1 4 12c0-.6.1-1.2.2-1.8l-2-1.5 2-3.4 2.4.9a8 8 0 0 1 3-1.8L10 2h4l.4 2.4a8 8 0 0 1 3 1.8l2.3-.9 2 3.4-2 1.5c.2.6.3 1.2.3 1.8Z',
   clock: 'M12 7v5l3 2m6-2a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z',
   trend: 'm3 17 6-6 4 4 8-9m0 0h-6m6 0v6',
+  'trend-down': 'm3 7 6 6 4-4 8 9m0 0v-6m0 6h-6',
+  eye: 'M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Zm10 3a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z',
+  download: 'M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4m4-5 5 5 5-5m-5 5V3',
+  chat: 'M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z',
 };
 
 export function Icon({ name, size = 24, className = '', ...rest }) {
@@ -229,7 +233,7 @@ export function Accordion({ items }) {
           <button
             aria-expanded={open === i}
             onClick={() => setOpen(open === i ? -1 : i)}
-            className="flex w-full items-center justify-between gap-4 py-5 text-left font-display text-h4 font-medium text-sand-900"
+            className="flex w-full items-center justify-between gap-4 py-5 text-left font-display text-h4 font-medium text-sand-900 transition-colors duration-fast hover:text-forest-800"
           >
             {it.q}
             <Icon name="chevron-down" size={20} className={`shrink-0 text-forest-600 transition-transform duration-base ${open === i ? 'rotate-180' : ''}`} />

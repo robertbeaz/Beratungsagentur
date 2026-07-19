@@ -1,16 +1,45 @@
 import { notFound } from 'next/navigation';
 import { PageHeader, CtaBand, FaqSection, Reveal } from '../../../components/sections';
 import { Icon, KiBadge, Eyebrow, Card, ButtonLink } from '../../../components/primitives';
-import { DashboardMockup, FlowIllustration, PhoneChatMockup } from '../../../components/illustrations';
 import { FeatureBento } from '../../../components/feature-bento';
 import { JsonLd, faqJsonLd, serviceJsonLd } from '../../../components/schema';
 import { services, useCases } from '../../../components/site';
 
-const serviceMedia = {
-  'digitale-agentur': <DashboardMockup />,
-  'ki-assistenz': <FlowIllustration />,
-  'kundenmagnet': <PhoneChatMockup />,
-};
+/* „Auf einen Blick"-Karte im Seitenkopf: holt den Besucher direkt ab –
+   was steckt drin, wie lange dauert es, was kostet es. Gespeist aus den
+   deliverables und dem Preisblock des Pakets (site.js). */
+function ServiceAtAGlance({ service }) {
+  return (
+    <div className="rounded-lg bg-sand-0 p-7 shadow-lg md:p-9">
+      <p className="m-0 flex items-center gap-2 text-body-sm font-semibold uppercase tracking-widest text-forest-600">
+        Auf einen Blick {service.ki && <KiBadge>KI</KiBadge>}
+      </p>
+      <ul className="m-0 mt-5 list-none space-y-3.5 p-0">
+        {service.deliverables.map((d) => (
+          <li key={d.title} className="flex items-center gap-3">
+            <span className="grid h-7 w-7 shrink-0 place-items-center rounded-pill bg-forest-100 text-forest-700">
+              <Icon name="check" size={14} />
+            </span>
+            <span className="font-medium text-sand-900">{d.title}</span>
+          </li>
+        ))}
+      </ul>
+      <div className="mt-6 border-t border-sand-100 pt-5">
+        <p className="m-0 flex items-center gap-2.5 text-body-sm text-sand-600">
+          <Icon name="clock" size={16} className="shrink-0 text-forest-700" />
+          {service.price.duration.replace('Typische Umsetzung: ', '')}
+        </p>
+        <p className="m-0 mt-2.5 flex items-center gap-2.5 text-body-sm text-sand-600">
+          <Icon name="card" size={16} className="shrink-0 text-forest-700" />
+          <span>
+            <span className="font-display text-h4 font-medium text-sand-900">ab {service.price.from}</span>
+            {' '}Festpreis, einmalig
+          </span>
+        </p>
+      </div>
+    </div>
+  );
+}
 
 export function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
@@ -43,7 +72,7 @@ export default async function ServicePage({ params }) {
         eyebrowIcon={service.icon}
         title={service.title}
         lead={service.teaser}
-        media={serviceMedia[service.slug]}
+        media={<ServiceAtAGlance service={service} />}
       />
 
       {/* Schmerzpunkte */}

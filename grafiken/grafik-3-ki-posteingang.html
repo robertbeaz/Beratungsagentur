@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>VERDA Grafik – KI-Posteingang (1200×1350)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest-100: #E5EED4; --forest-500: #64925C; --forest-700: #3A5936; --forest-900: #1D3A22;
+    --signal-300: #D7F98B;
+    --sand-0: #FFF; --sand-50: #F8F8F4; --sand-100: #EEEEE5; --sand-200: #DCDCD2;
+    --sand-500: #8B8E83; --sand-600: #5F625A; --sand-900: #262821; --sand-950: #171913;
+    --display: 'Schibsted Grotesk', sans-serif;
+    --body: 'Hanken Grotesk', sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: transparent; font-family: var(--body); }
+
+  /* ================= CANVAS 1200 × 1350 ================= */
+  .canvas {
+    width: 1200px; height: 1350px; position: relative;
+    border-radius: 48px; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .bg {
+    position: absolute; inset: -60px;
+    background: url('assets/bg-warm.jpg') center / cover no-repeat;
+    filter: blur(40px) saturate(0.95) brightness(1.18);
+    transform: scale(1.12);
+  }
+  .veil { position: absolute; inset: 0; background: rgba(23, 25, 19, 0.10); }
+
+  .card {
+    position: relative; width: 1000px;
+    background: var(--sand-0); border-radius: 32px;
+    padding: 52px;
+    box-shadow: 0 24px 64px rgba(23, 25, 19, 0.18);
+  }
+
+  /* ---------- Kopfzeile ---------- */
+  .head { display: flex; align-items: center; gap: 26px; }
+  .avatar {
+    width: 92px; height: 92px; border-radius: 50%;
+    background: var(--forest-900); color: #F3F7EE;
+    display: grid; place-items: center; flex: none;
+  }
+  .avatar svg { width: 44px; height: 44px; }
+  .head h2 {
+    font-family: var(--display); font-weight: 600; font-size: 40px;
+    letter-spacing: -0.01em; color: var(--sand-900);
+  }
+  .head .sub { margin-top: 8px; font-size: 26px; color: var(--sand-600); }
+  .badge {
+    margin-left: auto; background: var(--signal-300); color: var(--sand-950);
+    font-weight: 600; font-size: 26px; padding: 16px 30px; border-radius: 999px;
+  }
+  hr { border: none; border-top: 2px solid var(--sand-100); margin: 44px 0; }
+
+  /* ---------- Chat ---------- */
+  .msg { max-width: 78%; }
+  .msg + .msg { margin-top: 36px; }
+  .bubble {
+    padding: 32px 38px; font-size: 30px; line-height: 1.5; color: var(--sand-900);
+  }
+  .in .bubble { background: var(--sand-100); border-radius: 28px 28px 28px 8px; }
+  .out { margin-left: auto; }
+  .out .bubble { background: var(--forest-100); border-radius: 28px 28px 8px 28px; }
+  .meta {
+    margin-top: 14px; font-family: var(--mono); font-size: 23px; color: var(--sand-500);
+  }
+  .out .meta { text-align: right; }
+
+  /* ---------- Termin-Bestätigung ---------- */
+  .confirm {
+    margin-top: 48px; display: flex; align-items: center; gap: 26px;
+    background: var(--sand-50); border: 1.5px solid var(--sand-200);
+    border-radius: 24px; padding: 34px 38px;
+  }
+  .check {
+    width: 72px; height: 72px; border-radius: 50%; flex: none;
+    background: var(--forest-100); color: var(--forest-700);
+    display: grid; place-items: center;
+  }
+  .check svg { width: 36px; height: 36px; }
+  .confirm .title { font-weight: 600; font-size: 30px; color: var(--sand-900); }
+  .confirm .note { margin-top: 8px; font-size: 25px; color: var(--sand-600); }
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="bg"></div>
+  <div class="veil"></div>
+  <div class="card">
+
+    <div class="head">
+      <div class="avatar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      </div>
+      <div>
+        <h2>Posteingang</h2>
+        <div class="sub">WhatsApp · Website-Chat · E-Mail</div>
+      </div>
+      <div class="badge">KI-Assistent</div>
+    </div>
+
+    <hr>
+
+    <div class="msg in">
+      <div class="bubble">Guten Abend! Ich hätte gern ein Angebot für eine Hausrat&shy;versicherung. Geht das noch diese Woche?</div>
+      <div class="meta">21:47</div>
+    </div>
+
+    <div class="msg out">
+      <div class="bubble">Gern! Dafür brauche ich nur wenige Angaben. Passt Ihnen Dienstag um 9:30&nbsp;Uhr für ein kurzes Gespräch?</div>
+      <div class="meta">21:47 · automatisch beantwortet</div>
+    </div>
+
+    <div class="confirm">
+      <div class="check">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+      </div>
+      <div>
+        <div class="title">Termin bestätigt · Dienstag, 09:30 Uhr</div>
+        <div class="note">Automatisch im Kalender und CRM hinterlegt</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

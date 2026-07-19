@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>VERDA Grafik – Dokumente digital (1200×1350)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest-500: #64925C; --forest-700: #3A5936; --forest-900: #1D3A22;
+    --sand-0: #FFF; --sand-50: #F8F8F4; --sand-100: #EEEEE5; --sand-200: #DCDCD2;
+    --sand-500: #8B8E83; --sand-600: #5F625A; --sand-900: #262821; --sand-950: #171913;
+    --display: 'Schibsted Grotesk', sans-serif;
+    --body: 'Hanken Grotesk', sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: transparent; font-family: var(--body); }
+
+  /* ================= CANVAS 1200 × 1350 ================= */
+  .canvas {
+    width: 1200px; height: 1350px; position: relative;
+    border-radius: 48px; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .bg {
+    position: absolute; inset: -60px;
+    background: url('assets/bg-gold.jpg') center / cover no-repeat;
+    filter: blur(38px) saturate(0.92) brightness(1.02);
+    transform: scale(1.12);
+  }
+  /* leichte Abdunklung für Kontrast der weißen Karten */
+  .veil { position: absolute; inset: 0; background: rgba(23, 25, 19, 0.10); }
+
+  .stack {
+    position: relative; width: 1000px;
+    display: flex; flex-direction: column; gap: 28px;
+  }
+  .doc {
+    display: flex; align-items: center; justify-content: space-between;
+    background: var(--sand-0); border-radius: 28px;
+    padding: 44px 48px;
+    box-shadow: 0 24px 64px rgba(23, 25, 19, 0.16);
+  }
+  .doc h2 {
+    font-family: var(--display); font-weight: 600; font-size: 40px;
+    letter-spacing: -0.01em; color: var(--sand-900); line-height: 1.15;
+  }
+  .doc .date {
+    margin-top: 12px; font-family: var(--mono); font-size: 27px;
+    color: var(--sand-600);
+  }
+  .actions { display: flex; gap: 18px; }
+  .btn {
+    width: 92px; height: 92px; border-radius: 22px;
+    background: var(--sand-50); border: 1.5px solid var(--sand-200);
+    display: grid; place-items: center; color: var(--sand-600);
+  }
+  .btn svg { width: 40px; height: 40px; }
+  .btn.done { background: #E5EED4; border-color: transparent; color: var(--forest-700); }
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="bg"></div>
+  <div class="veil"></div>
+  <div class="stack">
+
+    <div class="doc">
+      <div>
+        <h2>Maklervollmacht</h2>
+        <div class="date">signiert · 14.07.2026</div>
+      </div>
+      <div class="actions">
+        <div class="btn done">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+        </div>
+        <div class="btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="doc">
+      <div>
+        <h2>Schadenmeldung KFZ</h2>
+        <div class="date">eingegangen · 11.07.2026</div>
+      </div>
+      <div class="actions">
+        <div class="btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <div class="btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="doc">
+      <div>
+        <h2>Beratungsprotokoll</h2>
+        <div class="date">aktualisiert · 03.07.2026</div>
+      </div>
+      <div class="actions">
+        <div class="btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <div class="btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="doc">
+      <div>
+        <h2>Angebot Wohngebäude</h2>
+        <div class="date">versendet · 28.06.2026</div>
+      </div>
+      <div class="actions">
+        <div class="btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <div class="btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

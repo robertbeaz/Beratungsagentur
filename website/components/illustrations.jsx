@@ -8,6 +8,69 @@
 import React from 'react';
 import { Icon, KiBadge } from './primitives';
 
+/* ---------- Vorher/Nachher (Startseiten-Hero) ----------
+   Ein geteiltes Bild erzählt die Transformation: links das gedämpfte
+   Papier-/Excel-Chaos, rechts die aufgeräumte digitale Akte. Bewusst
+   wenige Elemente, damit der Hero ruhig bleibt. */
+export function HeroBeforeAfter() {
+  return (
+    <div
+      role="img"
+      aria-label="Illustration: vorher verstreute Excel-Listen, Zettel und volle Postfächer – nachher eine aufgeräumte digitale Kundenakte mit erledigten Vorgängen"
+      className="relative overflow-hidden rounded-lg bg-sand-0 shadow-lg"
+    >
+      <div className="grid sm:grid-cols-2">
+        {/* Vorher: gedämpftes Chaos */}
+        <div className="flex flex-col gap-3 bg-sand-100 p-6 sm:p-7 sm:pr-9">
+          <p className="m-0 mb-1 text-caption uppercase tracking-widest text-sand-500">Vorher</p>
+          <div className="-rotate-2 rounded-sm bg-sand-0/80 p-3.5 shadow-xs">
+            <p className="m-0 flex items-center gap-2.5 text-body-sm font-semibold text-sand-700">
+              <Icon name="document" size={16} className="shrink-0 text-sand-500" />
+              Bestände_final_v7.xlsx
+            </p>
+            <p className="m-0 mt-0.5 pl-[26px] text-body-sm text-sand-500">3 Versionen im Umlauf</p>
+          </div>
+          <div className="ml-5 rotate-2 rounded-sm bg-amber-50 p-3.5 shadow-xs">
+            <p className="m-0 text-body-sm font-semibold text-amber-700">„Rückruf Fam. Weber!!"</p>
+            <p className="m-0 mt-0.5 text-body-sm text-amber-700/70">Zettel, seit Dienstag</p>
+          </div>
+          <div className="-rotate-1 rounded-sm bg-sand-0/80 p-3.5 shadow-xs">
+            <p className="m-0 flex items-center gap-2.5 text-body-sm font-semibold text-sand-700">
+              <Icon name="bell" size={16} className="shrink-0 text-sand-500" />
+              3 Postfächer · 14 ungelesen
+            </p>
+            <p className="m-0 mt-0.5 pl-[26px] text-body-sm text-sand-500">E-Mail, WhatsApp, Portal</p>
+          </div>
+        </div>
+        {/* Nachher: eine aufgeräumte Akte */}
+        <div className="p-6 sm:p-7 sm:pl-9">
+          <p className="m-0 mb-4 text-caption uppercase tracking-widest text-forest-600">Nachher</p>
+          <p className="m-0 font-display text-h4 font-semibold text-sand-900">Eine Akte, ein Überblick</p>
+          <ul className="m-0 mt-4 list-none space-y-3 p-0">
+            {[
+              'Anfrage beantwortet – nach 4 Minuten',
+              'Vollmacht digital signiert',
+              'Schadenmeldung vollständig im CRM',
+              'Wiedervorlage erinnert automatisch',
+            ].map((row) => (
+              <li key={row} className="flex items-center gap-3">
+                <span className="grid h-6 w-6 shrink-0 place-items-center rounded-pill bg-forest-100 text-forest-700">
+                  <Icon name="check" size={13} />
+                </span>
+                <span className="text-body-sm text-sand-800">{row}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+      {/* Pfeil auf der Trennlinie */}
+      <span className="absolute left-1/2 top-1/2 hidden h-11 w-11 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-pill bg-forest-900 text-forest-50 shadow-md sm:grid">
+        <Icon name="arrow-right" size={18} />
+      </span>
+    </div>
+  );
+}
+
 /* ---------- Isometrischer System-Stack (Startseiten-Hero) ----------
    Ebenen von unten nach oben: bestehende Software → Integrations-
    schicht → die Module, die wir aufsetzen. */

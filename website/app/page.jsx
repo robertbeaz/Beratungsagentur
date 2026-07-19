@@ -11,92 +11,82 @@ export const metadata = {
   title: 'VERDA – Das digitale Betriebssystem für Versicherungsagenturen',
 };
 
-/* ---------- Problem-Sektion ----------
-   Direkt nach Hero & Vertrauensleiste: Schmerz zuerst benennen,
-   bevor die Lösung (Pakete) gezeigt wird (PAS-Prinzip). */
+/* Hinweis zur Headline-Varianz: max. ein „Zwei-Satz-Aphorismus" pro Seite –
+   die übrigen Überschriften bewusst als Frage, Einzelsatz oder konkrete Zahl. */
+
+/* ---------- Ausgangslage (ersetzt Pain- + Audience-Sektion) ----------
+   Schmerz zuerst benennen (PAS-Prinzip), dann Selbsteinordnung nach Größe –
+   als redaktionelle Zweispalter-Sektion statt zweier Icon-Karten-Grids. */
 const pains = [
   {
-    icon: 'search',
     title: 'Daten überall, Überblick nirgends',
     text: 'Kundendaten liegen in Excel, im Postfach und im Verwaltungsprogramm – und jede Auswertung ist Handarbeit.',
   },
   {
-    icon: 'bell',
     title: 'Anfragen versanden',
     text: 'Interessenten schreiben über Portal, WhatsApp und E-Mail. Bis jemand antwortet, hat der Wettbewerber den Termin.',
   },
   {
-    icon: 'document',
     title: 'Verwaltung frisst Beratungszeit',
     text: 'Unterlagen anfordern, Daten übertragen, Standardmails tippen – Stunden pro Woche, die keine Provision bringen.',
   },
 ];
 
-function PainSection() {
+function SituationSection() {
   return (
     <section className="px-5 py-section-m md:py-section">
       <div className="mx-auto max-w-container">
-        <Reveal>
-          <Eyebrow icon="shield">Kommt Ihnen das bekannt vor?</Eyebrow>
-          <h2 className="mt-3 max-w-2xl font-display text-display-lg text-sand-900">
-            Ihr Geschäft wächst. Ihre Verwaltung wächst schneller.
-          </h2>
-        </Reveal>
-        <div className="mt-12 grid gap-5 md:grid-cols-3">
-          {pains.map((p, i) => (
-            <Reveal key={p.title} delay={i * 90}>
-              <div className="h-full rounded-sm bg-sand-0 p-6 shadow-hairline md:p-8">
-                <span className="inline-grid h-12 w-12 place-items-center rounded-sm bg-forest-100 text-forest-700">
-                  <Icon name={p.icon} size={24} />
-                </span>
-                <h3 className="mt-5 font-display text-h3 text-sand-900">{p.title}</h3>
-                <p className="mt-2 text-sand-600">{p.text}</p>
+        <div className="grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:gap-16">
+          <div className="lg:sticky lg:top-28 lg:self-start">
+            <Reveal>
+              <Eyebrow icon="shield">Kommt Ihnen das bekannt vor?</Eyebrow>
+              <h2 className="mt-3 font-display text-display-lg text-sand-900">
+                Wie viele Stunden pro Woche kostet Sie Ihre Verwaltung?
+              </h2>
+              <p className="mt-6 max-w-xl text-body-lg text-sand-700">
+                Das ist kein Personalproblem – es ist ein Prozessproblem.
+                Genau dazu beraten wir. Und anders als eine Softwarefirma hören wir
+                nicht bei der Empfehlung auf: Wir implementieren die Lösung, bis sie
+                in Ihrem Alltag läuft.
+              </p>
+              <div className="mt-6">
+                <TextLink href="/leistungen">Unsere Leistungen ansehen</TextLink>
               </div>
             </Reveal>
-          ))}
-        </div>
-        <Reveal delay={120}>
-          <p className="mt-10 max-w-2xl text-body-lg text-sand-700">
-            Das ist kein Personalproblem – es ist ein Prozessproblem.
-            Genau dazu beraten wir. Und anders als eine Softwarefirma hören wir
-            nicht bei der Empfehlung auf: Wir implementieren die Lösung, bis sie
-            in Ihrem Alltag läuft.
-          </p>
-        </Reveal>
-      </div>
-    </section>
-  );
-}
-
-/* ---------- Brücke zu den Paketen ----------
-   Kurze Selbsteinordnung nach Größe, direkt vor den drei Paketen –
-   beantwortet „passt das zu meiner Agentur?", bevor die Lösung kommt. */
-function AudienceSection() {
-  return (
-    <section className="bg-sand-50 px-5 py-section-m md:py-section">
-      <div className="mx-auto max-w-container">
-        <Reveal>
-          <Eyebrow icon="user">Für jede Größe passend</Eyebrow>
-          <h2 className="mt-3 max-w-2xl font-display text-display-lg text-sand-900">
-            Vom Einzelbüro bis zum großen Team – für jede Größe das passende Paket.
-          </h2>
-        </Reveal>
-        <div className="mt-12 grid gap-5 md:grid-cols-3">
-          {audiences.map((a, i) => (
-            <Reveal key={a.label} delay={i * 90}>
-              <div className="flex h-full flex-col rounded-sm bg-sand-0 p-6 shadow-hairline md:p-8">
-                <span className="inline-grid h-12 w-12 place-items-center rounded-sm bg-forest-100 text-forest-700">
-                  <Icon name={a.icon} size={24} />
-                </span>
-                <h3 className="mt-5 font-display text-h3 text-sand-900">{a.label}</h3>
-                <p className="mt-2 flex-1 text-sand-600">{a.text}</p>
-                <div className="mt-5">
-                  <TextLink href={a.href}>{a.linkLabel}</TextLink>
+          </div>
+          <div>
+            {pains.map((p, i) => (
+              <Reveal key={p.title} delay={i * 110} className="reveal-left">
+                <div className="flex gap-6 border-t border-sand-200 py-8 first:border-t-0 first:pt-0 md:gap-8">
+                  <span className="font-data text-data font-medium leading-8 text-forest-600">
+                    0{i + 1}
+                  </span>
+                  <div>
+                    <h3 className="font-display text-h3 text-sand-900">{p.title}</h3>
+                    <p className="mt-2 text-sand-600">{p.text}</p>
+                  </div>
                 </div>
-              </div>
-            </Reveal>
-          ))}
+              </Reveal>
+            ))}
+          </div>
         </div>
+        {/* Selbsteinordnung nach Agenturgröße – schmale Index-Leiste statt Karten-Grid */}
+        <Reveal delay={120}>
+          <div className="mt-20 border-t border-sand-200 pt-12">
+            <p className="m-0 font-display text-h4 text-sand-900">Wo steht Ihre Agentur heute?</p>
+            <div className="mt-8 grid gap-x-12 gap-y-8 sm:grid-cols-3">
+              {audiences.map((a) => (
+                <div key={a.label} className="flex flex-col">
+                  <p className="m-0 font-semibold text-sand-900">{a.label}</p>
+                  <p className="m-0 mt-1.5 flex-1 text-body-sm text-sand-600">{a.text}</p>
+                  <div className="mt-3">
+                    <TextLink href={a.href} className="text-body-sm">{a.linkLabel}</TextLink>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   );
@@ -113,15 +103,15 @@ const integrationPoints = [
 
 function IntegrationSection() {
   return (
-    <section className="px-5 py-section-m md:py-section">
+    <section className="bg-sand-50 px-5 py-section-m md:py-section">
       <div className="mx-auto max-w-container">
         <Reveal>
           <Eyebrow icon="settings">Tool-Integration</Eyebrow>
           <h2 className="mt-3 max-w-2xl font-display text-display-lg text-sand-900">
-            Nahtlose Integration in Ihren Arbeitsalltag
+            Wir bauen auf dem auf, was Sie schon nutzen
           </h2>
         </Reveal>
-        <div className="mt-12 grid gap-5 lg:grid-cols-[1.15fr_0.85fr]">
+        <div className="mt-14 grid gap-5 lg:grid-cols-[1.15fr_0.85fr] md:mt-16">
           <Reveal className="h-full">
             <div className="flex h-full flex-col rounded-md bg-forest-100 p-8 md:p-12">
               <h3 className="font-display text-h3 text-forest-950">Integriert in Ihre bestehende Software</h3>
@@ -147,7 +137,7 @@ function IntegrationSection() {
               <ul className="mt-8 flex-1 list-none space-y-3 p-0">
                 {integrationPoints.map((point) => (
                   <li key={point} className="flex items-center gap-3">
-                    <span className="grid h-7 w-7 shrink-0 place-items-center rounded-pill bg-forest-100 text-forest-700">
+                    <span className="grid h-7 w-7 shrink-0 place-items-center rounded-pill bg-sand-0 text-forest-700 shadow-hairline">
                       <Icon name="check" size={14} />
                     </span>
                     <span className="text-sand-800">{point}</span>
@@ -165,85 +155,118 @@ function IntegrationSection() {
   );
 }
 
-/* ---------- Ablauf-Sektion ---------- */
+/* ---------- Ablauf als vertikale Timeline ---------- */
 function ProcessSection() {
   return (
-    <section className="bg-sand-50 px-5 py-section-m md:py-section">
+    <section className="px-5 py-section-m md:py-section">
       <div className="mx-auto max-w-container">
-        <Reveal>
-          <Eyebrow icon="calendar">So arbeiten wir</Eyebrow>
-          <h2 className="mt-3 max-w-2xl font-display text-display-lg text-sand-900">
-            Kein IT-Projekt. Ein klarer Weg in vier Etappen.
-          </h2>
-        </Reveal>
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {processSteps.map((p, i) => (
-            <Reveal key={p.step} delay={i * 90}>
-              <div className="h-full rounded-sm bg-sand-0 p-6 shadow-hairline">
-                <span className="font-data text-data font-medium text-forest-600">{p.step}</span>
-                <h3 className="mt-3 font-display text-h4 text-sand-900">{p.title}</h3>
-                <p className="mt-2 text-body-sm text-sand-600">{p.text}</p>
+        <div className="grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:gap-16">
+          <div className="lg:sticky lg:top-28 lg:self-start">
+            <Reveal>
+              <Eyebrow icon="calendar">So arbeiten wir</Eyebrow>
+              <h2 className="mt-3 font-display text-display-lg text-sand-900">
+                In vier Etappen von der Analyse bis zur Übergabe
+              </h2>
+              <div className="mt-8">
+                <TextLink href="/erstgespraech">Mit Etappe 01 starten – kostenloses Erstgespräch</TextLink>
               </div>
             </Reveal>
-          ))}
-        </div>
-        <Reveal delay={120}>
-          <div className="mt-10">
-            <TextLink href="/erstgespraech">Mit Etappe 01 starten – kostenloses Erstgespräch</TextLink>
           </div>
-        </Reveal>
+          <Reveal className="relative">
+            {/* Linie der Timeline – zeichnet sich beim Reveal von oben ein (.reveal-rail) */}
+            <span aria-hidden="true" className="reveal-rail absolute bottom-5 left-5 top-5 w-px bg-sand-200" />
+            <ol className="relative m-0 list-none space-y-12 p-0">
+              {processSteps.map((p) => (
+                <li key={p.step} className="flex gap-6 md:gap-8">
+                  <span className="z-10 grid h-10 w-10 shrink-0 place-items-center rounded-pill bg-sand-0 font-data text-data font-medium text-forest-700 shadow-hairline">
+                    {p.step}
+                  </span>
+                  <div className="pt-1">
+                    <h3 className="font-display text-h4 text-sand-900">{p.title}</h3>
+                    <p className="mt-2 text-body-sm text-sand-600">{p.text}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </Reveal>
+        </div>
       </div>
     </section>
   );
 }
 
-/* ---------- Use-Case-Teaser ----------
-   Konkreter Beweis (eine Kurzgeschichte je Paket) statt nur
-   abstrakter Kennzahlen – direkt vor der Stats-/Testimonial-Beweiskette. */
-const teaserSlugs = ['/leistungen/digitale-agentur', '/leistungen/kundenmagnet', '/leistungen/ki-assistenz'];
-
+/* ---------- Featured Use Case ----------
+   Ein Projekt redaktionell erzählt statt drei identischer Teaser-Karten;
+   die übrigen Cases als kompakte Zeilen darunter. */
 function UseCaseTeaser() {
-  const featured = teaserSlugs
+  const featured = useCases.find((c) => c.title.startsWith('Schadenmeldungen einsammeln')) ?? useCases[0];
+  const more = ['/leistungen/kundenmagnet', '/leistungen/ki-assistenz']
     .map((href) => useCases.find((c) => c.serviceHref === href))
     .filter(Boolean);
 
   return (
-    <section className="bg-sand-50 px-5 py-section-m md:py-section">
+    <section className="px-5 py-section-m md:py-section">
       <div className="mx-auto max-w-container">
         <Reveal>
-          <Eyebrow icon="chart">Aus der Praxis</Eyebrow>
-          <h2 className="mt-3 max-w-2xl font-display text-display-lg text-sand-900">
-            Sehen Sie, wie andere Agenturen das lösen.
+          <Eyebrow icon="chart">Aus der Praxis · ein Projekt im Detail</Eyebrow>
+          <h2 className="mt-3 max-w-3xl font-display text-display-lg text-sand-900">
+            {featured.title}
           </h2>
         </Reveal>
-        <div className="mt-12 grid gap-5 md:grid-cols-3">
-          {featured.map((c, i) => (
-            <Reveal key={c.title} delay={i * 90}>
+        <div className="mt-10 grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16 md:mt-12">
+          <Reveal>
+            <p className="m-0 text-body-sm font-semibold uppercase tracking-widest text-forest-600">
+              {featured.branch}
+            </p>
+            <p className="mt-4 text-body-lg text-sand-700">{featured.problem}</p>
+            <p className="mt-4 text-sand-600">{featured.improvement}</p>
+            <div className="mt-6">
+              <TextLink href="/use-cases">Alle Use Cases ansehen</TextLink>
+            </div>
+          </Reveal>
+          <Reveal delay={100}>
+            <div className="rounded-md bg-forest-100 p-7 md:p-8">
+              <p className="m-0 flex items-baseline gap-2 text-body-sm text-amber-700">
+                <span className="font-data font-medium">vorher</span> über 15 E-Mails pro Schadenfall
+              </p>
+              <div className="mt-5 grid gap-6 sm:grid-cols-2">
+                <div className="border-t border-forest-900/15 pt-4">
+                  <p className="m-0 font-display text-h3 font-medium text-forest-900">{featured.gain.value}</p>
+                  <p className="m-0 mt-1 text-body-sm text-sand-600">{featured.gain.label}</p>
+                </div>
+                <div className="border-t border-forest-900/15 pt-4">
+                  <p className="m-0 font-display text-h3 font-medium text-forest-900">{featured.time.value}</p>
+                  <p className="m-0 mt-1 text-body-sm text-sand-600">{featured.time.label}</p>
+                </div>
+              </div>
+              <p className="m-0 mt-5 flex items-center gap-2 border-t border-forest-900/15 pt-4 text-body-sm text-sand-700">
+                <Icon name="clock" size={16} className="shrink-0 text-forest-700" />
+                {featured.duration}
+              </p>
+            </div>
+          </Reveal>
+        </div>
+        {/* Weitere Cases als kompakte Zeilen */}
+        <Reveal delay={150}>
+          <div className="mt-14 border-t border-sand-200">
+            {more.map((c) => (
               <Link
+                key={c.title}
                 href="/use-cases"
-                className="group flex h-full flex-col rounded-sm bg-sand-0 p-6 no-underline shadow-hairline transition-all duration-fast hover:-translate-y-1 hover:shadow-md md:p-8"
+                className="group -mx-4 flex flex-col gap-1.5 rounded-sm border-b border-sand-200 px-4 py-6 no-underline transition-colors duration-fast hover:bg-sand-50 sm:flex-row sm:items-center sm:gap-6"
               >
-                <p className="m-0 text-body-sm font-semibold uppercase tracking-widest text-forest-600">
-                  {c.branch}
-                </p>
-                <h3 className="mt-2 font-display text-h4 text-sand-900">{c.title}</h3>
-                <p className="mt-2 flex-1 text-sand-600">{c.problem}</p>
-                <p className="m-0 mt-5 flex items-start gap-2 font-display text-h4 font-medium text-forest-900">
-                  <Icon name="trend" size={20} className="mt-0.5 shrink-0 text-forest-600" />
+                <span className="w-56 shrink-0 text-body-sm text-sand-500">{c.branch}</span>
+                <span className="flex-1 font-display text-h4 font-medium text-sand-900">{c.title}</span>
+                <span className="flex items-center gap-2 font-semibold text-forest-700">
                   {c.gain.value}
-                </p>
-                <span className="mt-4 inline-flex items-center gap-1.5 text-body-sm font-semibold text-forest-700">
-                  Case ansehen
-                  <Icon name="arrow-right" size={15} className="transition-transform duration-fast group-hover:translate-x-1" />
+                  <Icon name="arrow-right" size={16} className="transition-transform duration-fast group-hover:translate-x-1" />
                 </span>
               </Link>
-            </Reveal>
-          ))}
-        </div>
-        <Reveal delay={200}>
-          <div className="mt-8">
-            <TextLink href="/use-cases">Alle Use Cases ansehen</TextLink>
+            ))}
           </div>
+          <p className="mt-6 text-body-sm text-sand-500">
+            Beispielprojekte – Zahlen werden nach Kundenfreigabe durch echte Ergebnisse ersetzt.
+          </p>
         </Reveal>
       </div>
     </section>
@@ -265,8 +288,7 @@ export default function HomePage() {
         label="Herstellerunabhängig: Wir verkaufen keine Software, wir implementieren die passende – zum Beispiel"
         logos={tools}
       />
-      <PainSection />
-      <AudienceSection />
+      <SituationSection />
       <FeatureStepper title="Wir beraten, implementieren und schulen – in drei Paketen." />
       <ProcessSection />
       <IntegrationSection />
