@@ -24,6 +24,12 @@ const dataFont = IBM_Plex_Mono({
   display: 'swap',
 });
 
+/* Safari & Co. färben ihre Toolbar sonst nach der obersten Seitenfarbe
+   (dem grünen Hero) ein – hier fest auf das Weiß der Seite gesetzt. */
+export const viewport = {
+  themeColor: '#FDFDFC',
+};
+
 export const metadata = {
   metadataBase: new URL(site.url),
   title: {

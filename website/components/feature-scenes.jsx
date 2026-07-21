@@ -14,7 +14,7 @@ import { Icon, KiBadge } from './primitives';
 /* ---------- Rahmen: geblurrtes Foto + Abdunklung + Inhalt ---------- */
 function SceneFrame({ bg, label, children }) {
   return (
-    <div className="relative overflow-hidden rounded-lg" role="img" aria-label={label}>
+    <div className="relative flex h-full overflow-hidden rounded-lg" role="img" aria-label={label}>
       {/* Eigener Wrapper für den Scroll-Parallax, damit die Drift-Animation
          nicht mit scale/blur des Bildes kollidiert */}
       <div className="scroll-drift absolute inset-0">
@@ -27,7 +27,7 @@ function SceneFrame({ bg, label, children }) {
         />
       </div>
       <div className="absolute inset-0 bg-sand-950/10" />
-      <div className="relative p-5 py-8 sm:p-9 sm:py-12">{children}</div>
+      <div className="relative m-auto w-full p-5 py-8 sm:p-9 sm:py-12">{children}</div>
     </div>
   );
 }

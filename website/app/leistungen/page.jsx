@@ -93,18 +93,10 @@ export default function LeistungenPage() {
               Fundament anfangen – im Erstgespräch sagen wir ehrlich, wo Ihr größter Hebel liegt.
             </p>
           </Reveal>
-          <div className="mt-10 grid gap-6 lg:grid-cols-[1fr_auto_1fr_auto_1fr] lg:items-center">
-            {services.flatMap((s, i) => [
-              i > 0 && (
-                <Icon
-                  key={`arrow-${s.slug}`}
-                  name="arrow-right"
-                  size={22}
-                  className="mx-auto hidden shrink-0 text-sand-300 lg:block"
-                />
-              ),
-              <PackageColumn key={s.slug} s={s} i={i} />,
-            ])}
+          <div className="mt-10 grid gap-6 lg:grid-cols-3 lg:items-stretch">
+            {services.map((s, i) => (
+              <PackageColumn key={s.slug} s={s} i={i} />
+            ))}
           </div>
           <Reveal delay={200}>
             <p className="mt-8 text-center text-body-sm text-sand-500">

@@ -315,9 +315,23 @@ export function FeatureStepper({ title = 'Drei Bausteine für einen Betrieb, der
               )
             )}
           </div>
-          {/* Rechte Spalte: Szene der aktiven Leistung (bringt eigenen Hintergrund mit) */}
-          <div key={services[active].slug} className="animate-scale-in">
-            {stepperMedia[services[active].slug]}
+          {/* Rechte Spalte: Szene der aktiven Leistung (bringt eigenen Hintergrund mit).
+             Alle drei Szenen liegen im selben Grid-Feld übereinander – so ist der
+             Rahmen bei jedem Paket exakt gleich groß und der Wechsel springt nicht. */}
+          <div className="grid">
+            {services.map((s, i) => (
+              <div
+                key={s.slug}
+                aria-hidden={i !== active}
+                className={`[grid-area:1/1] transition-all duration-base ${
+                  i === active
+                    ? 'scale-100 opacity-100'
+                    : 'pointer-events-none invisible scale-[0.97] opacity-0'
+                }`}
+              >
+                {stepperMedia[s.slug]}
+              </div>
+            ))}
           </div>
         </div>
       </div>
