@@ -1,5 +1,5 @@
 import { Schibsted_Grotesk, Hanken_Grotesk, IBM_Plex_Mono } from 'next/font/google';
-import { Navbar, Footer } from '../components/sections';
+import { SiteChrome } from '../components/site-chrome';
 import { site } from '../components/site';
 import { JsonLd, organizationJsonLd } from '../components/schema';
 import './globals.css';
@@ -45,9 +45,7 @@ export default function RootLayout({ children }) {
     <html lang="de" className={`${displayFont.variable} ${bodyFont.variable} ${dataFont.variable}`}>
       <body className="font-body">
         <JsonLd data={organizationJsonLd()} />
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
+        <SiteChrome>{children}</SiteChrome>
       </body>
     </html>
   );

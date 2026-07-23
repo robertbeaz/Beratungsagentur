@@ -3,9 +3,10 @@ import { Icon } from '../../components/primitives';
 import { site } from '../../components/site';
 
 export const metadata = {
-  title: 'Erstgespräch vereinbaren – kostenlos & unverbindlich',
+  title: 'Kurz-Check buchen – 15 Minuten, kostenlos & unverbindlich',
   description:
-    'Buchen Sie Ihr kostenloses 30-minütiges Erstgespräch: Wir analysieren Ihre Prozesse und zeigen die größten Hebel für Ihren Vermittlerbetrieb.',
+    'Buchen Sie Ihren kostenlosen Kurz-Check: 15–20 Minuten, in denen wir Ihre Situation verstehen und sagen, ob und wie wir helfen. Kein Verkaufsgespräch.',
+  alternates: { canonical: '/kurz-check' },
 };
 
 const expectations = [
@@ -21,19 +22,19 @@ const expectations = [
   },
   {
     icon: 'document',
-    title: 'Sie erhalten eine Empfehlung',
-    text: 'Konkrete nächste Schritte, ob mit oder ohne uns. Danach entscheiden Sie in Ruhe – kein Nachfassen im Stundentakt.',
+    title: 'Sie kennen den nächsten Schritt',
+    text: 'Passt es, ist der nächste Schritt die Digital-Analyse: ein Fahrplan zum Festpreis. Wenn nicht, sagen wir das ehrlich.',
   },
 ];
 
-export default function ErstgespraechPage() {
+export default function KurzCheckPage() {
   return (
     <>
       <PageHeader
-        eyebrow="Erstgespräch"
+        eyebrow="Kurz-Check"
         eyebrowIcon="calendar"
-        title="30 Minuten, die Ihrem Betrieb Stunden sparen."
-        lead="Wählen Sie einfach einen Termin, der Ihnen passt. Das Gespräch ist kostenlos, unverbindlich und findet per Video oder Telefon statt."
+        title="15 Minuten Kennenlernen – ohne Verkaufsdruck."
+        lead="Wählen Sie einfach einen Termin, der Ihnen passt. Der Kurz-Check ist kostenlos, unverbindlich und findet per Video oder Telefon statt. Kein Pitch – wir hören erst einmal zu."
       />
 
       {/* Ablauf des Gesprächs */}
@@ -52,6 +53,13 @@ export default function ErstgespraechPage() {
               </Reveal>
             ))}
           </div>
+          <Reveal delay={120}>
+            <p className="mt-8 text-body-sm text-sand-500">
+              Schon entschlossen? Sie können den Kurz-Check überspringen und direkt die{' '}
+              <a href="/digital-analyse" className="font-semibold text-forest-700">Digital-Analyse</a>{' '}
+              anfragen – der Fahrplan zum Festpreis, bei Beauftragung angerechnet.
+            </p>
+          </Reveal>
         </div>
       </section>
 
@@ -66,7 +74,7 @@ export default function ErstgespraechPage() {
               {/* TODO: calUrl in components/site.js durch den echten Cal.com-Link ersetzen */}
               <iframe
                 src={site.calUrl}
-                title="Erstgespräch buchen"
+                title="Kurz-Check buchen"
                 className="h-[720px] w-full border-0"
                 loading="lazy"
               />

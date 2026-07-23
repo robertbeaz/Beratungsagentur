@@ -11,9 +11,11 @@ Wichtig zur Einordnung: VERDA ist keine Softwarefirma. Kunden bezahlen für Bera
 - [KI-Assistenz](/leistungen/ki-assistenz): Premium – KI-Chatbot mit Wissensdatenbank fürs Team, Telefonbots (Inbound & Outbound) und automatische KI-Terminvorbereitung, DSGVO-konform mit EU-Hosting wo möglich. Festpreis ab 5.000 € (5.000–9.000 €), Umsetzung in 4–8 Wochen.
 - Digital-Partner (Retainer nach dem Projekt): laufende Betreuung, Weiterentwicklung und Schulung ab 490 €/Monat (Basis), 890 €/Monat (Standard), 1.490 €/Monat (Premium).
 
-## Einstieg
+## Einstieg (Verkaufstreppe)
 
-- [Erstgespräch](/erstgespraech): Kostenloses, unverbindliches Kennenlerngespräch (30 Minuten) – Analyse der Situation, ehrliche Einschätzung, kein Verkaufspitch.
+- [Kurz-Check](/kurz-check): Kostenloses, unverbindliches Kennenlerngespräch (15–20 Minuten) – erste Einordnung der Situation, Quick Wins und ein grober Fahrplan, kein Verkaufspitch. Der niedrigschwellige Einstieg.
+- Digital-Analyse (kostenpflichtiger nächster Schritt, 490 €, zzgl. USt.): Status-quo-Analyse der Systeme mit priorisiertem Fahrplan, herstellerunabhängiger Tool-Empfehlung und Festpreis-Empfehlung. Bei Beauftragung eines Pakets wird der Betrag vollständig angerechnet.
+- Weg: Kurz-Check (kostenlos) → Digital-Analyse (490 €, angerechnet) → Paket (Festpreis) → Digital-Partner (Retainer).
 - Alle Preise sind Festpreise zzgl. Softwarelizenzen direkt beim jeweiligen Anbieter (typisch ca. 20–50 €/Nutzer/Monat).
 
 ## Weitere Seiten

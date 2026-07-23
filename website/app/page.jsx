@@ -168,7 +168,7 @@ function ProcessSection() {
                 In vier Etappen von der Analyse bis zur Übergabe
               </h2>
               <div className="mt-8">
-                <TextLink href="/erstgespraech">Mit Etappe 01 starten – kostenloses Erstgespräch</TextLink>
+                <TextLink href="/kurz-check">Mit Etappe 01 starten – kostenloser Kurz-Check</TextLink>
               </div>
             </Reveal>
           </div>

@@ -116,8 +116,8 @@ export default function UeberUnsPage() {
       </section>
 
       <CtaBand
-        title="Lernen Sie uns im Gespräch kennen."
-        lead="30 Minuten, keine Verkaufsshow: Sie schildern Ihre Situation, wir sagen ehrlich, ob und wie wir helfen können."
+        title="Lernen Sie uns im Kurz-Check kennen."
+        lead="15–20 Minuten, keine Verkaufsshow: Sie schildern Ihre Situation, wir sagen ehrlich, ob und wie wir helfen können."
       />
     </>
   );

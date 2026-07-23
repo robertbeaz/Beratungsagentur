@@ -40,7 +40,7 @@ export default function DatenschutzPage() {
           <div>
             <h2 className="font-display text-h4 text-sand-900">3. Terminbuchung über Cal.com</h2>
             <p>
-              Für die Vereinbarung von Erstgesprächen binden wir den Terminbuchungsdienst
+              Für die Vereinbarung von Kurz-Checks binden wir den Terminbuchungsdienst
               Cal.com ein. Wenn Sie einen Termin buchen, werden die von Ihnen eingegebenen
               Daten (Name, E-Mail-Adresse, ggf. Telefonnummer und Ihre Nachricht) an Cal.com
               übermittelt und dort verarbeitet. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO

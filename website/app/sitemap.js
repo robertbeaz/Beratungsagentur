@@ -4,7 +4,7 @@ import { articles } from '../content/artikel';
 /* Automatische sitemap.xml: statische Seiten + Pakete + veröffentlichte
    Wissens-Artikel (Drafts sind in `articles` im Prod-Build nicht enthalten). */
 export default function sitemap() {
-  const staticRoutes = ['', '/leistungen', '/use-cases', '/wissen', '/ueber-uns', '/erstgespraech'].map(
+  const staticRoutes = ['', '/leistungen', '/use-cases', '/wissen', '/ueber-uns', '/kurz-check'].map(
     (path) => ({
       url: `${site.url}${path}`,
       changeFrequency: 'monthly',

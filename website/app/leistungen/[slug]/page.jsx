@@ -3,7 +3,7 @@ import { PageHeader, CtaBand, FaqSection, Reveal } from '../../../components/sec
 import { Icon, KiBadge, Eyebrow, Card, ButtonLink } from '../../../components/primitives';
 import { FeatureBento } from '../../../components/feature-bento';
 import { JsonLd, faqJsonLd, serviceJsonLd } from '../../../components/schema';
-import { services, useCases } from '../../../components/site';
+import { services, useCases, digitalAnalyse } from '../../../components/site';
 
 /* „Auf einen Blick"-Karte im Seitenkopf: holt den Besucher direkt ab –
    was steckt drin, wie lange dauert es, was kostet es. Gespeist aus den
@@ -195,8 +195,12 @@ export default async function ServicePage({ params }) {
                   <p className="mt-2 max-w-xl text-forest-100">{service.price.note}</p>
                   <p className="mt-4 text-body-sm text-forest-200">{service.price.duration}</p>
                   <p className="mt-1 text-body-sm text-forest-200">{service.price.retainer}</p>
+                  <p className="mt-4 flex items-start gap-2 border-t border-forest-50/15 pt-4 text-body-sm text-forest-100">
+                    <Icon name="search" size={16} className="mt-0.5 shrink-0 text-forest-200" />
+                    {digitalAnalyse.packageNote}
+                  </p>
                 </div>
-                <ButtonLink href="/erstgespraech" variant="accent" size="lg">Erstgespräch vereinbaren</ButtonLink>
+                <ButtonLink href="/kurz-check" variant="accent" size="lg">Kurz-Check buchen</ButtonLink>
               </Card>
             </Reveal>
           </div>
@@ -206,7 +210,7 @@ export default async function ServicePage({ params }) {
       <FaqSection title="Häufige Fragen dazu" items={service.faq} />
       <CtaBand
         title="Klingt nach Ihrem Thema?"
-        lead="Im Erstgespräch schauen wir konkret auf Ihre Situation – und Sie erhalten eine ehrliche Einschätzung, was sich lohnt."
+        lead="Im kostenlosen Kurz-Check schauen wir konkret auf Ihre Situation – und Sie erhalten eine ehrliche Einschätzung, was sich lohnt."
       />
     </>
   );

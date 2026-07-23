@@ -135,7 +135,7 @@ export function Navbar() {
               {l.label}
             </Link>
           ))}
-          <ButtonLink href="/erstgespraech" size="sm">{site.cta}</ButtonLink>
+          <ButtonLink href="/kurz-check" size="sm">{site.cta}</ButtonLink>
         </div>
         <button
           className="grid h-11 w-11 place-items-center rounded-sm bg-sand-100 lg:hidden"
@@ -175,7 +175,7 @@ export function Navbar() {
               </Link>
             ))}
           </div>
-          <ButtonLink href="/erstgespraech" className="mt-6 w-full" onClick={() => setOpen(false)}>
+          <ButtonLink href="/kurz-check" className="mt-6 w-full" onClick={() => setOpen(false)}>
             {site.cta}
           </ButtonLink>
         </div>
@@ -196,13 +196,13 @@ export function Hero({ title, lead, secondaryLabel, secondaryHref, media }) {
           {lead}
         </p>
         <div className="mt-10 flex animate-fade-up flex-wrap items-center justify-center gap-4 [animation-delay:240ms]">
-          <ButtonLink href="/erstgespraech" size="lg" variant="accent" icon="arrow-right">{site.cta}</ButtonLink>
+          <ButtonLink href="/kurz-check" size="lg" variant="accent" icon="arrow-right">{site.cta}</ButtonLink>
           {secondaryLabel && (
             <ButtonLink href={secondaryHref} size="lg" variant="secondary">{secondaryLabel}</ButtonLink>
           )}
         </div>
         <p className="mt-6 animate-fade-up text-body-sm text-sand-500 [animation-delay:360ms]">
-          Kostenlos & unverbindlich · 30 Minuten · per Video oder Telefon
+          Kostenlos & unverbindlich · 15–20 Minuten · per Video oder Telefon
         </p>
         {media && <div className="mt-14 animate-fade-up [animation-delay:480ms]">{media}</div>}
       </div>
@@ -235,13 +235,13 @@ export function HeroShowcase({ eyebrow, title, lead, secondaryLabel, secondaryHr
             {lead}
           </p>
           <div className="mt-6 flex animate-fade-up flex-wrap items-center gap-4 [animation-delay:240ms]">
-            <ButtonLink href="/erstgespraech" size="lg">{site.cta}</ButtonLink>
+            <ButtonLink href="/kurz-check" size="lg">{site.cta}</ButtonLink>
             {secondaryLabel && (
               <ButtonLink href={secondaryHref} size="lg" variant="secondary">{secondaryLabel}</ButtonLink>
             )}
           </div>
           <p className="mt-3 animate-fade-up text-body-sm text-sand-500 [animation-delay:360ms]">
-            Kostenlos & unverbindlich · 30 Minuten · per Video oder Telefon
+            Kostenlos & unverbindlich · 15–20 Minuten · per Video oder Telefon
           </p>
         </div>
         <div className="animate-fade-up [animation-delay:240ms]">
@@ -407,7 +407,7 @@ export function StatsSection({ title, lead, stats = [], note }) {
 /* ---------- CTA-Band (dunkelgrün) ---------- */
 export function CtaBand({
   title = 'Lassen Sie uns über Ihre Prozesse sprechen.',
-  lead = 'In 30 Minuten wissen Sie, wo Ihre größten Hebel liegen – und ob wir zueinander passen.',
+  lead = 'In 15–20 Minuten Kurz-Check wissen Sie, wo Ihre größten Hebel liegen – und ob wir zueinander passen.',
   ctaLabel = site.cta,
 }) {
   return (
@@ -417,7 +417,7 @@ export function CtaBand({
           <h2 className="mx-auto max-w-2xl font-display text-display-lg text-forest-50">{title}</h2>
           {lead && <p className="mx-auto mt-5 max-w-xl text-body-lg text-forest-200">{lead}</p>}
           <div className="mt-10">
-            <ButtonLink href="/erstgespraech" size="lg" variant="accent" icon="arrow-right">{ctaLabel}</ButtonLink>
+            <ButtonLink href="/kurz-check" size="lg" variant="accent" icon="arrow-right">{ctaLabel}</ButtonLink>
           </div>
           <p className="mt-6 text-body-sm text-forest-200/80">
             Kein Vertrag, kein Verkaufsdruck – Sie entscheiden danach in Ruhe, ob und wie wir weiterarbeiten.
@@ -489,7 +489,7 @@ export function FaqSection({ title = 'Häufige Fragen', items = [] }) {
         <Reveal>
           <h2 className="font-display text-display-lg text-sand-900">{title}</h2>
           <p className="mt-4 text-sand-600">
-            Ihre Frage ist nicht dabei? <Link href="/erstgespraech" className="font-semibold">Stellen Sie sie uns direkt.</Link>
+            Ihre Frage ist nicht dabei? <Link href="/kurz-check" className="font-semibold">Stellen Sie sie uns direkt.</Link>
           </p>
         </Reveal>
         <Reveal delay={100}>
@@ -516,7 +516,7 @@ const footerColumns = [
       { label: 'Use Cases', href: '/use-cases' },
       { label: 'Wissen', href: '/wissen' },
       { label: 'Über uns', href: '/ueber-uns' },
-      { label: 'Erstgespräch', href: '/erstgespraech' },
+      { label: 'Kurz-Check', href: '/kurz-check' },
     ],
   },
   {

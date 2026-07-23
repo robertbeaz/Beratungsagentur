@@ -106,7 +106,7 @@ export const article = {
     },
     {
       type: 'p',
-      text: 'Kein hartes Verkaufen: Der Artikel endet mit einer ehrlichen Einordnung, wann sich professionelle Unterstützung lohnt – der CTA-Baustein (Erstgespräch) wird automatisch darunter gerendert.',
+      text: 'Kein hartes Verkaufen: Der Artikel endet mit einer ehrlichen Einordnung, wann sich professionelle Unterstützung lohnt – der CTA-Baustein (Kurz-Check) wird automatisch darunter gerendert.',
     },
   ],
 

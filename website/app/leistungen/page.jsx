@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { PageHeader, CtaBand, Reveal } from '../../components/sections';
-import { Icon, KiBadge, Eyebrow } from '../../components/primitives';
+import { Icon, KiBadge, Eyebrow, Card, ButtonLink } from '../../components/primitives';
 import { PackagesIllustration } from '../../components/illustrations';
 import { services, retainerTiers } from '../../components/site';
 
@@ -75,9 +75,32 @@ export default function LeistungenPage() {
         eyebrow="Leistungen"
         eyebrowIcon="settings"
         title="Das digitale Betriebssystem für Ihre Agentur – in drei Paketen."
-        lead="Sie müssen nicht alles auf einmal angehen. Die meisten Agenturen starten mit dem größten Schmerzpunkt – wir sagen Ihnen im Erstgespräch ehrlich, welcher das ist."
+        lead="Sie müssen nicht alles auf einmal angehen. Die meisten Agenturen starten mit dem größten Schmerzpunkt – wir sagen Ihnen im Kurz-Check ehrlich, welcher das ist."
         media={<PackagesIllustration />}
       />
+
+      {/* Einstieg: jedes Projekt startet mit der Digital-Analyse */}
+      <section className="px-5 pt-section-m md:pt-section">
+        <div className="mx-auto max-w-container">
+          <Reveal>
+            <Card tone="brand" className="grid gap-6 md:grid-cols-[1fr_auto] md:items-center">
+              <div>
+                <Eyebrow icon="search" tone="on-dark">Der Einstieg</Eyebrow>
+                <h2 className="mt-3 max-w-2xl font-display text-h2 text-forest-50">
+                  Jedes Projekt startet mit der Digital-Analyse.
+                </h2>
+                <p className="mt-3 max-w-xl text-forest-100">
+                  490 €, bei Beauftragung voll angerechnet. Sie bekommen erst einen Fahrplan mit
+                  Festpreis – dann entscheiden Sie in Ruhe über das passende Paket.
+                </p>
+              </div>
+              <ButtonLink href="/kurz-check" variant="accent" size="lg" icon="arrow-right">
+                Kurz-Check buchen
+              </ButtonLink>
+            </Card>
+          </Reveal>
+        </div>
+      </section>
 
       {/* Pakete mit Preis & Leistungsumfang */}
       <section className="px-5 py-section-m md:py-section">
@@ -90,7 +113,7 @@ export default function LeistungenPage() {
             <p className="mt-4 max-w-2xl text-sand-600">
               Digitale Agentur schafft das Fundament, Kundenmagnet bringt neue Kunden,
               KI-Assistenz optimiert zuletzt, was schon läuft. Sie müssen aber nicht beim
-              Fundament anfangen – im Erstgespräch sagen wir ehrlich, wo Ihr größter Hebel liegt.
+              Fundament anfangen – in der Digital-Analyse sagen wir ehrlich, wo Ihr größter Hebel liegt.
             </p>
           </Reveal>
           <div className="mt-10 grid gap-6 lg:grid-cols-3 lg:items-stretch">
@@ -147,7 +170,7 @@ export default function LeistungenPage() {
 
       <CtaBand
         title="Nicht sicher, wo Sie anfangen sollen?"
-        lead="Genau dafür ist das Erstgespräch da: 30 Minuten, und Sie kennen Ihre größten Hebel."
+        lead="Starten Sie mit dem kostenlosen Kurz-Check: 15–20 Minuten, und Sie wissen, welcher Baustein bei Ihnen zuerst wirkt."
       />
     </>
   );

@@ -108,7 +108,7 @@ export default function UseCasesPage() {
 
       <CtaBand
         title="Ihr Betrieb könnte der nächste sein."
-        lead="Erzählen Sie uns im Erstgespräch, wo es bei Ihnen hakt – wir sagen Ihnen, was realistisch erreichbar ist."
+        lead="Erzählen Sie uns im kostenlosen Kurz-Check, wo es bei Ihnen hakt – wir sagen Ihnen, was realistisch erreichbar ist."
       />
     </>
   );

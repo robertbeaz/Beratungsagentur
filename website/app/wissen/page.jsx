@@ -24,7 +24,7 @@ export default function WissenPage() {
             <Reveal>
               <p className="mx-auto max-w-2xl text-center text-body-lg text-sand-600">
                 Die ersten Artikel erscheinen in Kürze. Bis dahin: Im{' '}
-                <a href="/erstgespraech" className="font-semibold">kostenlosen Erstgespräch</a>{' '}
+                <a href="/kurz-check" className="font-semibold">kostenlosen Kurz-Check</a>{' '}
                 beantworten wir Ihre Fragen direkt.
               </p>
             </Reveal>
@@ -41,7 +41,7 @@ export default function WissenPage() {
       </section>
       <CtaBand
         title="Lieber direkt fragen statt lesen?"
-        lead="Im Erstgespräch schauen wir auf Ihre konkrete Situation – 30 Minuten, kostenlos und unverbindlich."
+        lead="Im kostenlosen Kurz-Check schauen wir auf Ihre konkrete Situation – 15–20 Minuten, unverbindlich."
       />
     </>
   );

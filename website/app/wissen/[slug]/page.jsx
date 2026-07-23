@@ -42,7 +42,7 @@ export default async function ArtikelPage({ params }) {
       <ArticleServiceTeaser article={article} />
       <CtaBand
         title="Wie sieht das bei Ihnen aus?"
-        lead="Im Erstgespräch schauen wir auf Ihre Abläufe und Sie erhalten eine ehrliche Einschätzung – 30 Minuten, kostenlos und unverbindlich."
+        lead="Im kostenlosen Kurz-Check schauen wir auf Ihre Abläufe und Sie erhalten eine ehrliche Einschätzung – 15–20 Minuten, unverbindlich."
       />
     </>
   );
